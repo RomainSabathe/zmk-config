@@ -34,7 +34,7 @@
             display-name = "default";
             bindings = <
 &kp GRAVE &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &kp MINUS
-&kp TAB   &kp B  &kp L    &kp D    &kp C     &kp V                            &kp J  &kp F     &kp O     &kp U    &kp COMMA    &kp PLUS
+&kp TAB   &kp B  &kp L    &kp D    &kp C     &kp V                            &kp J  &kp F     &kp O     &kp U    &kp COMMA    &kp EQUAL
 &kp ESC   &kp N  &kp R    &kp T    &kp S     &kp G                            &kp Y  &kp H     &kp A     &kp E    &kp I &kp FSLH
 &kp LSHFT &kp X  &kp Q    &kp M    &kp W     &kp Z      &kp C_MUTE &kp C_MUTE      &kp K  &kp P     &kp SQT &kp SEMI  &kp DOT &kp RSHFT
                  &kp LEFT_CONTROL &kp LALT &kp DELETE &kp BSPC  &kp RET    &kp TAB  &kp SPACE  &kp ESC &kp RGUI  &kp RIGHT_CONTROL

@@ -11,7 +11,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #define BASE 0
-#define LOWER 1
+#define NAV 1
 #define RAISE 2
 #define ADJUST 3
 
@@ -21,29 +21,8 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         adjust_layer {
-            if-layers = <LOWER RAISE>;
+            if-layers = <NAV RAISE>;
             then-layer = <ADJUST>;
-        };
-    };
-
-    behaviors {
-        rgb_layer0: rgb_layer0 {
-            compatible = "zmk,behavior-rgb-underglow";
-            label = "RGB_LAYER0";
-            #binding-cells = <0>;
-            led-color = <255 0 0>; // Red
-        };
-        rgb_layer1: rgb_layer1 {
-            compatible = "zmk,behavior-rgb-underglow";
-            label = "RGB_LAYER1";
-            #binding-cells = <0>;
-            led-color = <0 255 0>; // Green
-        };
-        rgb_layer2: rgb_layer2 {
-            compatible = "zmk,behavior-rgb-underglow";
-            label = "RGB_LAYER2";
-            #binding-cells = <0>;
-            led-color = <0 0 255>; // Blue
         };
     };
 
@@ -54,19 +33,20 @@
         default_layer {
             display-name = "default";
             bindings = <
-&kp GRAVE &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &kp BSPC
-&kp TAB   &kp B  &kp L    &kp D    &kp C     &kp V                            &kp J  &kp F     &kp O     &kp U    &kp COMMA    &none
+&kp GRAVE &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &kp MINUS
+&kp TAB   &kp B  &kp L    &kp D    &kp C     &kp V                            &kp J  &kp F     &kp O     &kp U    &kp COMMA    &kp PLUS
 &kp ESC   &kp N  &kp R    &kp T    &kp S     &kp G                            &kp Y  &kp H     &kp A     &kp E    &kp I &kp FSLH
 &kp LSHFT &kp X  &kp Q    &kp M    &kp W     &kp Z      &kp C_MUTE &kp C_MUTE      &kp K  &kp P     &kp SQT &kp SEMI  &kp DOT &kp RSHFT
-                 &kp LGUI &kp LALT &mo LOWER &rgb_layer0 &kp BSPC  &kp RET    &kp SPACE  &kp SPACE  &none &kp RALT  &kp RGUI
+                 &kp LEFT_CONTROL &kp LALT &kp DELETE &kp BSPC  &kp RET    &kp TAB  &kp SPACE  &kp ESC &kp RGUI  &kp RIGHT_CONTROL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        lower_layer {
-            display-name = "lower";
-&trans    &kp F1    &kp F2    &kp F3      &kp F4    &kp F5                    &kp F6    &kp F7   &kp F8    &kp F9    &kp F10   &kp F11
+        nav_layer {
+            display-name = "nav";
+            bindings = <
+&kp COMMA    &kp F1    &kp F2    &kp F3      &kp F4    &kp F5                    &kp F6    &kp F7   &kp F8    &kp F9    &kp F10   &kp F11
 &kp GRAVE &kp N1    &kp N2    &kp N3      &kp N4    &kp N5                    &kp N6    &kp N7   &kp N8    &kp N9    &kp N0    &kp F12
 &trans    &kp EXCL  &kp AT    &kp HASH    &kp DLLR  &kp PRCNT                 &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR  &kp PIPE
 &trans    &kp EQUAL &kp MINUS &kp PLUS &kp LBRC  &kp RBRC   &trans &trans  &kp LBKT  &kp RBKT &kp SEMI  &kp COLON &kp BSLH  &trans

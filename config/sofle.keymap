@@ -18,6 +18,11 @@
 #define SYM 3
 #define ADJUST 4
 
+&lt {
+    tapping-term-ms = <200>;
+    quick-tap-ms = <200>;
+};
+
 / {
 
    // Activate ADJUST layer by pressing raise and lower

@@ -61,8 +61,8 @@
         media_layer {
             display-name = "media";
             bindings = <
-&none &none &none &none &none &none                 &none &none &none &none &none &none 
-&none &none &none &none &none &none                 &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none 
+&none &none &none &none &none &rgb_ug RGB_TOG                 &none &none &none &none &none &none 
+&none &none &none &none &none &none                 &none &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none 
 &none &kp LGUI &kp LALT &kp LSHFT &kp LCTRL &none                 &bl BL_TOG  &kp C_PREV &kp C_RW &kp C_FF &kp C_NEXT &none
 &none &none &none &none &none &none     &trans &trans  &out OUT_TOG &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
       &none &none &none &none &none                 &kp C_STOP &kp C_PP &kp ESC &none &none       

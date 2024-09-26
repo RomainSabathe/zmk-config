@@ -48,16 +48,16 @@
                  &kp LCTRL &kp LALT &lt MEDIA DELETE &lt NAV BSPC  &kp RET    &kp ESC  &lt SYM SPACE  &kp TAB &kp RGUI  &kp RCTRL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB) &inc_dec_kp LA(LS(TAB)) LA(TAB)>;
         };
 
         nav_layer {
             display-name = "nav";
             bindings = <
-&none &none &none &none &none &none                 &none &none &none &none &none &none 
-&none &none &none &none &none &none                 &none &none &none &none &none &none 
+&none &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5)                 &kp LA(N6) &kp LA(N7) &kp LA(N8) &kp LA(N9) &kp LA(N0) &none 
+&none &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(Y)                 &none &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &none 
 &none &kp LGUI &kp LALT &kp LSHFT &kp LCTRL &none                 &kp BSPC  &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp DEL 
-&none &none &none &none &none &none     &trans &trans  &kp RET &kp HOME &kp PG_DN &kp PG_UP &kp END &caps_word 
+&none &none &none &kp LC(A) &none &none     &trans &trans  &kp RET &kp HOME &kp PG_DN &kp PG_UP &kp END &caps_word 
       &none &none &none &none &none                 &kp ESC &kp SPACE &kp TAB &kp CAPS &none       
             >;
 

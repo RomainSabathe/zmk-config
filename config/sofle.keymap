@@ -88,7 +88,7 @@
 &none &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5)                 &kp LA(N6) &kp LA(N7) &kp LA(N8) &kp LA(N9) &kp LA(N0) &kp LC(LA(LS(L))) 
 &none &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(Y)                 &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &none 
 &kp LA(RET) &kp LGUI &kp LALT &kp LSHFT &kp LCTRL &kp LA(H)                 &kp BSPC  &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp DEL 
-&none &kp LA(R) &kp LA(D) &kp LC(A) &kp LA(F) &kp LA(V)     &trans &trans  &kp caps_word &kp HOME &kp PG_DN &kp PG_UP &kp END &none 
+&none &kp LA(R) &kp LA(D) &kp LC(A) &kp LA(F) &kp LA(V)     &trans &trans  &caps_word &kp HOME &kp PG_DN &kp PG_UP &kp END &none 
       &none &none &none &none &none                 &kp ESC &kp SPACE &kp TAB &kp CAPS &none       
             >;
 

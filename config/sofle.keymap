@@ -76,7 +76,7 @@
 &kp TAB   &kp B  &kp L    &kp D    &kp C     &kp V                            &kp J  &kp F     &kp O     &kp U    &kp COMMA    &kp EQUAL
 &kp ESC   &hml LGUI N  &hml LALT R    &hml LSHFT T    &hml LCTRL S     &kp G                            &kp Y  &hmr LCTRL H     &hmr RSHFT A     &hmr LALT E    &hmr LGUI I &kp FSLH
 &kp LSHFT &kp X  &kp Q    &kp M    &kp W     &kp Z      &kp C_MUTE &kp C_MUTE      &kp K  &kp P     &kp SQT &kp SEMI  &kp DOT &kp RSHFT
-                 &kp LCTRL &kp LALT &lt MEDIA DELETE &lt NAV BSPC  &kp RET    &kp ESC  &lt SYM SPACE  &kp TAB &kp RGUI  &kp RCTRL
+                 &kp LCTRL &kp LALT &sk LSHIFT &lt NAV BSPC  &lt MEDIA RET    &kp ESC  &lt SYM SPACE  &kp TAB &kp RGUI  &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB) &inc_dec_kp LA(LS(TAB)) LA(TAB)>;

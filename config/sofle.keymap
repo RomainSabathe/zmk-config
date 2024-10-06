@@ -39,9 +39,10 @@
     quick-tap-ms = <200>;
 };
 
-/ {
+ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
-    ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
+
+/ {
 
    // Activate ADJUST layer by pressing raise and lower
     conditional_layers {

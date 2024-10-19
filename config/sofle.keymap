@@ -112,7 +112,7 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
         media_layer {
             display-name = "media";
             bindings = <
-&none &none &none &none &none &rgb_ug RGB_TOG                 &none &none &none &none &none &none 
+&bootloader &none &none &none &none &rgb_ug RGB_TOG                 &none &none &none &none &none &bootloader
 &none &none &none &none &none &none                 &none &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none 
 &none &kp LGUI &kp LALT &kp LSHFT &kp LCTRL &none                 &bl BL_TOG  &kp C_PREV &kp C_RW &kp C_FF &kp C_NEXT &none
 &none &none &none &none &none &none     &trans &trans  &out OUT_TOG &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
@@ -125,7 +125,7 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
         sym_layer {
             display-name = "sym";
             bindings = <
-&none &none &none &none &none &none                &none &none &none &none &none &none 
+&none &none &none &none &none &none                &none &none &none &none &none &bootloader 
 &none &kp EXCL &kp AT &kp LBKT &kp RBKT &none                &none &none &none &none &none &none 
 &none &kp STAR &kp HASH &kp LPAR &kp RPAR &kp BSLH                &none &kp LCTRL &kp LSHFT &kp LALT &kp LGUI &none 
 &none &none &kp GRAVE &kp COMMA &kp PERIOD &none  &trans &trans &none &none &none &none &none &none 

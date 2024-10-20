@@ -109,9 +109,9 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
        bindings = <
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */ /* 13 */ /* 14 */   
 &none   &none    &none     &none     &none     &none                    &none   &none     &none     &none    &none    &bootloader
-&none   &kp STAR &kp LBRC  &kp LBKT  &kp LPAR  &kp PIPE                 &none   &kp RPAR  &kp RBKT  &kp RBRC &none    &none      
+&none   &kp STAR &kp LBRC  &kp LBKT  &kp LPAR  &kp SPACE                 &none   &kp RPAR  &kp RBKT  &kp RBRC &none    &none      
 &none   &kp PLUS &kp MINUS &kp EQUAL &kp UNDER &kp BSLH                 &none   &kp LCTRL &kp LSHFT &kp LALT &kp LGUI &none      
-&none   &kp EXCL &kp TILDE &kp SLASH &kp HASH  &none    &trans  &trans  &none   &none     &none     &none    &none    &none      
+&none   &kp EXCL &kp TILDE &kp SLASH &kp HASH  &kp PIPE    &trans  &trans  &none   &none     &none     &none    &none    &none      
                  &trans    &trans    &mo MEDIA &trans   &trans  &trans  &trans  &trans    &trans    &trans                       
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */ /* 13 */ /* 14 */   
 >;

@@ -50,9 +50,26 @@
     release-after-ms = <1000>;  // Default is at 1s.
 };
 
-ZMK_COMBO(combo_enter, &kp RET, RM1, RM2)
- ZMK_COMBO(combo_escape, &kp ESC, LM1, LM2)
-ZMK_COMBO(combo_tab, &kp TAB, LM3, LM2)
+/ {
+    combos {
+        compatible = "zmk,combos";
+        combo_return {
+            timeout-ms = <50>;
+            key-positions = <RM1 RM2>;
+            bindings = <&kp RET>;
+        };
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <LM2 LM3>;
+            bindings = <&kp TAB>;
+        };
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <LM1 LM2>;
+            bindings = <&kp ESC>;
+        };
+    };
+};
 
 / {
 

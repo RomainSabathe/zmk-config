@@ -42,7 +42,7 @@
     release-after-ms = <3000>; // Default is at 1s.
     quick-release;  // Releasing the stikey key as soon as another key is pressed (instead of released)
     ignore-modifiers;  // This is activated by default. The stiky behavior continues when a modifier key is pressed. Allows to combine modifiers (a la Callum mods).
-}
+};
 
 ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 

@@ -50,10 +50,9 @@
     release-after-ms = <1000>;  // Default is at 1s.
 };
 
-ZMK_COMBO(enter, &kp RET, RM1, RM2)
-// ZMK_COMBO(escape, &kp ESC, LM1, LM2)
-ZMK_COMBO(tab,  &kp TAB, LM3, LM2)
-ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
+ZMK_COMBO(combo_enter, &kp RET, RM1, RM2)
+ ZMK_COMBO(combo_escape, &kp ESC, LM1, LM2)
+ZMK_COMBO(combo_tab, &kp TAB, LM3, LM2)
 
 / {
 

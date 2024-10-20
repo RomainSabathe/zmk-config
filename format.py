@@ -51,26 +51,39 @@ def align_ampersands(bindings_str: str) -> str:
 def keymap_str_to_matrix(bindings_str: str) -> List[List[str]]:
     # Remove leading/trailing whitespace and split into lines
     lines = bindings_str.strip().split("\n")
+    # Removing the lines that contain comments. This corresponds to the "index"
+    # line and should be added manually by the formatting code.
+    lines = [line for line in lines if "/*" not in line]
 
     matrix = []
+    # Making the first row and last row of the matrix a comment with the key
+    # index, for easier mapping and understanding.
+    index_row = [f"/* {i+1} */" for i in range(14)]
+    matrix.append(index_row)
+
     for i, line in enumerate(lines):
-        blocks = []
-        for j, block in enumerate(
-            line.split("&")[1:]
-        ):  # because the line always start with a "&" sign.
-            if i == 4 and j == 0:
-                blocks.extend(["", ""])
-            blocks.append(block.strip())
-            if i in [0, 1, 2] and j == 5:
-                blocks.extend(["", ""])
-            if i == 4 and j == 9:
-                blocks.extend(["", ""])
-        blocks = [f"&{block}" if len(block) > 0 else block for block in blocks]
+        blocks = line.split("&")[1:]  # removing leading &
+        blocks = ["&" + block.strip() for block in blocks]
+
+        # Creating empty slots for the rows of the keyboard that don't
+        # have 14 keys (e.g. the thumb row).
+        if i in [0, 1, 2]:
+            blocks = blocks[:6] + ["", ""] + blocks[6:]
+        elif i in [4]:
+            blocks = ["", ""] + blocks + ["", ""]
+
         matrix.append(blocks)
 
-    assert len(matrix) == 5
+    # Adding the index row at the end as well.
+    matrix.append(index_row)
+
+    assert (
+        len(matrix) - 2 == 5
+    ), f"Expected 5 keyboard rows, got {len(matrix)-2}"  # minus 2 because we don't want to count the two extra index rows.
     for i, row in enumerate(matrix):
-        assert len(row) == 14, f"{row=}, {len(row)=}"
+        assert (
+            len(row) == 14
+        ), f"Expected each keyboard row to have 14 keys, got {len(row)} for row {i}\n{row}"
     return matrix
 
 

@@ -13,19 +13,6 @@ def format_bindings(input_string, custom_fn):
         input_string,
         flags=re.DOTALL,
     )
-    keymap_match = re.search(r"keymap\s*{([\s\S]*?)};\s*};", input_string)
-    if not keymap_match:
-        return input_string  # Return original string if no keymap block found
-
-    keymap_content = keymap_match.group(1)
-    processed_content = re.sub(
-        r"bindings\s*=\s*<([\s\S]*?)>;", replacement, keymap_content
-    )
-    return (
-        input_string[: keymap_match.start()]
-        + f"keymap {{\n{processed_content}\n}}"
-        + input_string[keymap_match.end() :]
-    )
 
 
 def align_ampersands(bindings_str: str) -> str:

@@ -30,7 +30,7 @@
 
 
 #define KEYS_L LN0 LN1 LN2 LN3 LN4 LN5 LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5 
-#define KEYS_R RN0 RN1 RN2 RN3 RN4 RN5 RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5 
+#define KEYS_R RN0 RN1 RN2 RN3 RN4 RN5 RT1 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5 
 #define KEYS_THUMBS LH0 LH1 LH2 LH3 LH4 RH0 RH1 RH2 RH3 RH4 
 
 &lt {
@@ -38,10 +38,16 @@
     quick-tap-ms = <200>;
 };
 
+// Sticky key
 &sk {
     release-after-ms = <3000>; // Default is at 1s.
-    quick-release;  // Releasing the stikey key as soon as another key is pressed (instead of released)
+    quick-release;  // Releasing the stiky key as soon as another key is pressed (instead of released). This prevents having multiple letters capitalised in case of a fast roll for instance.
     ignore-modifiers;  // This is activated by default. The stiky behavior continues when a modifier key is pressed. Allows to combine modifiers (a la Callum mods).
+};
+
+// Sticky layer
+&sl {
+    release-after-ms = <1000>;
 };
 
 ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
@@ -82,13 +88,13 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
         default_layer {
             display-name = "galliumv2";
-     bindings = <
+    bindings = <
 /* 1 */     /* 2 */ /* 3 */   /* 4 */  /* 5 */ /* 6 */  /* 7 */   /* 8 */ /* 9 */   /* 10 */ /* 11 */ /* 12 */  /* 13 */  /* 14 */   
 &bootloader &kp N1  &kp N2    &kp N3   &kp N4  &kp N5                     &kp N6    &kp N7   &kp N8   &kp N9    &kp N0    &bootloader
 &kp TAB     &kp B   &kp L     &kp D    &kp C   &kp V                      &kp J     &kp F    &kp O    &kp U     &kp COMMA &kp EQUAL  
 &kp ESC     &kp N   &kp R     &kp T    &kp S   &kp G                      &kp Y     &kp H    &kp A    &kp E     &kp I     &kp FSLH   
 &kp LSHFT   &kp X   &kp Q     &kp M    &kp W   &kp Z    &none     &none   &kp K     &kp P    &kp SQT  &kp SEMI  &kp DOT   &kp RSHFT  
-                    &kp LCTRL &kp LALT &mo NAV &kp BSPC &sk LSHFT &kp ESC &kp SPACE &mo SYM  &kp RGUI &kp RCTRL                      
+                    &kp LCTRL &kp LALT &sl NAV &kp BSPC &sk LSHFT &kp ESC &kp SPACE &sl SYM  &kp RGUI &kp RCTRL                      
 /* 1 */     /* 2 */ /* 3 */   /* 4 */  /* 5 */ /* 6 */  /* 7 */   /* 8 */ /* 9 */   /* 10 */ /* 11 */ /* 12 */  /* 13 */  /* 14 */   
 >;
 
@@ -97,13 +103,13 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
         nav_layer {
             display-name = "nav";
-     bindings = <
+    bindings = <
 /* 1 */     /* 2 */    /* 3 */    /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
 &none       &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5)                 &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
 &none       &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Y)                  &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &none            
 &kp LA(RET) &sk LGUI   &sk LALT   &sk LSHFT  &sk LCTRL  &kp LA(B)                  &kp RET       &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp DEL          
 &none       &kp LA(R)  &kp LA(D)  &kp LC(A)  &kp LA(F)  &kp LA(V)  &trans  &trans  &caps_word    &kp HOME    &kp PG_DN   &kp PG_UP       &kp END         &none            
-                       &trans     &trans     &trans     &trans     &trans  &trans  &trans        &mo MEDIA   &trans      &trans                                           
+                       &trans     &trans     &trans     &trans     &trans  &trans  &trans        &sl MEDIA   &trans      &trans                                           
 /* 1 */     /* 2 */    /* 3 */    /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
 >;
 
@@ -112,13 +118,13 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
         sym_layer {
             display-name = "sym";
-     bindings = <
+    bindings = <
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */ /* 13 */ /* 14 */   
 &none   &none    &none     &none     &none     &none                     &none   &none     &none     &none    &none    &bootloader
 &none   &kp STAR &kp LBRC  &kp LBKT  &kp LPAR  &kp SPACE                 &none   &kp RPAR  &kp RBKT  &kp RBRC &none    &none      
 &none   &kp PLUS &kp MINUS &kp EQUAL &kp UNDER &kp BSLH                  &none   &sk LCTRL &sk LSHFT &sk LALT &sk LGUI &none      
 &none   &kp EXCL &kp TILDE &kp SLASH &kp HASH  &kp PIPE  &trans  &trans  &none   &none     &none     &none    &none    &none      
-                 &trans    &trans    &mo MEDIA &trans    &trans  &trans  &trans  &trans    &trans    &trans                       
+                 &trans    &trans    &sl MEDIA &trans    &trans  &trans  &trans  &trans    &trans    &trans                       
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */ /* 13 */ /* 14 */   
 >;
 
@@ -127,7 +133,7 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
         media_layer {
             display-name = "media";
-     bindings = <
+    bindings = <
 /* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */    /* 9 */      /* 10 */        /* 11 */        /* 12 */        /* 13 */        /* 14 */    
 &bootloader &none    &none    &none     &none     &rgb_ug RGB_TOG                    &none        &none           &none           &none           &none           &bootloader 
 &none       &none    &none    &none     &none     &none                              &none        &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none       
@@ -142,7 +148,7 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
         template_layer {
             display-name = "template";
-     bindings = <
+    bindings = <
 /* 1 */ /* 2 */ /* 3 */ /* 4 */ /* 5 */ /* 6 */ /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */ /* 14 */
 &none   &none   &none   &none   &none   &none                   &none   &none    &none    &none    &none    &none   
 &none   &none   &none   &none   &none   &none                   &none   &none    &none    &none    &none    &none   

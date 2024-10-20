@@ -47,7 +47,7 @@
 
 // Sticky layer
 &sl {
-    release-after-ms = <1000>;
+    release-after-ms = <1000>;  // Default is at 1s.
 };
 
 ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
@@ -88,14 +88,14 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
         default_layer {
             display-name = "galliumv2";
-    bindings = <
-/* 1 */     /* 2 */ /* 3 */   /* 4 */  /* 5 */ /* 6 */  /* 7 */   /* 8 */ /* 9 */   /* 10 */ /* 11 */ /* 12 */  /* 13 */  /* 14 */   
-&bootloader &kp N1  &kp N2    &kp N3   &kp N4  &kp N5                     &kp N6    &kp N7   &kp N8   &kp N9    &kp N0    &bootloader
-&kp TAB     &kp B   &kp L     &kp D    &kp C   &kp V                      &kp J     &kp F    &kp O    &kp U     &kp COMMA &kp EQUAL  
-&kp ESC     &kp N   &kp R     &kp T    &kp S   &kp G                      &kp Y     &kp H    &kp A    &kp E     &kp I     &kp FSLH   
-&kp LSHFT   &kp X   &kp Q     &kp M    &kp W   &kp Z    &none     &none   &kp K     &kp P    &kp SQT  &kp SEMI  &kp DOT   &kp RSHFT  
-                    &kp LCTRL &kp LALT &sl NAV &kp BSPC &sk LSHFT &kp ESC &kp SPACE &sl SYM  &kp RGUI &kp RCTRL                      
-/* 1 */     /* 2 */ /* 3 */   /* 4 */  /* 5 */ /* 6 */  /* 7 */   /* 8 */ /* 9 */   /* 10 */ /* 11 */ /* 12 */  /* 13 */  /* 14 */   
+   bindings = <
+/* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */ /* 6 */  /* 7 */   /* 8 */ /* 9 */   /* 10 */ /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
+&kp GRAVE &kp N1  &kp N2    &kp N3   &kp N4  &kp N5                     &kp N6    &kp N7   &kp N8   &kp N9    &kp N0    &kp MINUS
+&kp TAB   &kp B   &kp L     &kp D    &kp C   &kp V                      &kp J     &kp F    &kp O    &kp U     &kp COMMA &kp EQUAL
+&kp ESC   &kp N   &kp R     &kp T    &kp S   &kp G                      &kp Y     &kp H    &kp A    &kp E     &kp I     &kp FSLH 
+&kp LSHFT &kp X   &kp Q     &kp M    &kp W   &kp Z    &none     &none   &kp K     &kp P    &kp SQT  &kp SEMI  &kp DOT   &kp RSHFT
+                  &kp LCTRL &kp LALT &sl NAV &kp BSPC &sk LSHFT &kp ESC &kp SPACE &sl SYM  &kp RGUI &kp RCTRL                    
+/* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */ /* 6 */  /* 7 */   /* 8 */ /* 9 */   /* 10 */ /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
 >;
 
             sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB) &inc_dec_kp LA(LS(TAB)) LA(TAB)>;
@@ -103,9 +103,9 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
         nav_layer {
             display-name = "nav";
-    bindings = <
+   bindings = <
 /* 1 */     /* 2 */    /* 3 */    /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
-&none       &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5)                 &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
+&bootloader &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5)                 &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
 &none       &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Y)                  &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &none            
 &kp LA(RET) &sk LGUI   &sk LALT   &sk LSHFT  &sk LCTRL  &kp LA(B)                  &kp RET       &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp DEL          
 &none       &kp LA(R)  &kp LA(D)  &kp LC(A)  &kp LA(F)  &kp LA(V)  &trans  &trans  &caps_word    &kp HOME    &kp PG_DN   &kp PG_UP       &kp END         &none            
@@ -118,7 +118,7 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
         sym_layer {
             display-name = "sym";
-    bindings = <
+   bindings = <
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */ /* 13 */ /* 14 */   
 &none   &none    &none     &none     &none     &none                     &none   &none     &none     &none    &none    &bootloader
 &none   &kp STAR &kp LBRC  &kp LBKT  &kp LPAR  &kp SPACE                 &none   &kp RPAR  &kp RBKT  &kp RBRC &none    &none      
@@ -133,7 +133,7 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
         media_layer {
             display-name = "media";
-    bindings = <
+   bindings = <
 /* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */    /* 9 */      /* 10 */        /* 11 */        /* 12 */        /* 13 */        /* 14 */    
 &bootloader &none    &none    &none     &none     &rgb_ug RGB_TOG                    &none        &none           &none           &none           &none           &bootloader 
 &none       &none    &none    &none     &none     &none                              &none        &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none       
@@ -148,7 +148,7 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 
         template_layer {
             display-name = "template";
-    bindings = <
+   bindings = <
 /* 1 */ /* 2 */ /* 3 */ /* 4 */ /* 5 */ /* 6 */ /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */ /* 14 */
 &none   &none   &none   &none   &none   &none                   &none   &none    &none    &none    &none    &none   
 &none   &none   &none   &none   &none   &none                   &none   &none    &none    &none    &none    &none   

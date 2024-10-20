@@ -92,7 +92,7 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 &kp TAB     &kp B   &kp L     &kp D    &kp C   &kp V                      &kp J     &kp F    &kp O    &kp U     &kp COMMA &kp EQUAL  
 &kp ESC     &kp N   &kp R     &kp T    &kp S   &kp G                      &kp Y     &kp H    &kp A    &kp E     &kp I     &kp FSLH   
 &kp LSHFT   &kp X   &kp Q     &kp M    &kp W   &kp Z     &none    &none   &kp K     &kp P    &kp SQT  &kp SEMI  &kp DOT   &kp RSHFT  
-                    &kp LCTRL &kp LALT &mo NAV &kp LSHFT &kp BSPC &kp ESC &kp SPACE &mo SYM  &kp RGUI &kp RCTRL                      
+                    &kp LCTRL &kp LALT &mo NAV &kp BSPC &kp LSHFT &kp ESC &kp SPACE &mo SYM  &kp RGUI &kp RCTRL                      
 /* 1 */     /* 2 */ /* 3 */   /* 4 */  /* 5 */ /* 6 */   /* 7 */  /* 8 */ /* 9 */   /* 10 */ /* 11 */ /* 12 */  /* 13 */  /* 14 */   
 >;
 
@@ -105,25 +105,10 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 /* 1 */     /* 2 */    /* 3 */    /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
 &none       &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5)                 &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
 &none       &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Y)                  &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &none            
-&kp LA(RET) &kp LGUI   &kp LALT   &kp LSHFT  &kp LCTRL  &kp LA(B)                  &kp BSPC      &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp DEL          
+&kp LA(RET) &kp LGUI   &kp LALT   &kp LSHFT  &kp LCTRL  &kp LA(B)                  &kp RET    &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp DEL          
 &none       &kp LA(R)  &kp LA(D)  &kp LC(A)  &kp LA(F)  &kp LA(V)  &trans  &trans  &caps_word    &kp HOME    &kp PG_DN   &kp PG_UP       &kp END         &none            
                        &trans     &trans     &trans     &trans     &trans  &trans  &trans        &mo MEDIA   &trans      &trans                                           
 /* 1 */     /* 2 */    /* 3 */    /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
->;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        media_layer {
-            display-name = "media";
-  bindings = <
-/* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */    /* 9 */      /* 10 */        /* 11 */        /* 12 */        /* 13 */        /* 14 */    
-&bootloader &none    &none    &none     &none     &rgb_ug RGB_TOG                    &none        &none           &none           &none           &none           &bootloader 
-&none       &none    &none    &none     &none     &none                              &none        &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none       
-&none       &kp LGUI &kp LALT &kp LSHFT &kp LCTRL &none                              &bl BL_TOG   &kp C_PREV      &kp C_RW        &kp C_FF        &kp C_NEXT      &none       
-&none       &none    &none    &none     &none     &none           &trans  &trans     &out OUT_TOG &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4
-                     &none    &none     &none     &none           &none   &kp C_STOP &kp C_PP     &kp ESC         &none           &none                                       
-/* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */    /* 9 */      /* 10 */        /* 11 */        /* 12 */        /* 13 */        /* 14 */    
 >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -139,6 +124,21 @@ ZMK_COMBO(left_paren,  &kp LPAR, LM2 LM1)
 &none   &none    &kp GRAVE &kp COMMA &kp PERIOD &none    &trans  &trans  &none   &none     &none     &none    &none    &none      
                  &trans    &trans    &mo MEDIA  &trans   &trans  &trans  &trans  &trans    &trans    &trans                       
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */    /* 6 */  /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */ /* 13 */ /* 14 */   
+>;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        media_layer {
+            display-name = "media";
+  bindings = <
+/* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */    /* 9 */      /* 10 */        /* 11 */        /* 12 */        /* 13 */        /* 14 */    
+&bootloader &none    &none    &none     &none     &rgb_ug RGB_TOG                    &none        &none           &none           &none           &none           &bootloader 
+&none       &none    &none    &none     &none     &none                              &none        &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none       
+&none       &kp LGUI &kp LALT &kp LSHFT &kp LCTRL &none                              &bl BL_TOG   &kp C_PREV      &kp C_RW        &kp C_FF        &kp C_NEXT      &none       
+&none       &none    &none    &none     &none     &none           &trans  &trans     &out OUT_TOG &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4
+                     &none    &none     &none     &none           &none   &kp C_STOP &kp C_PP     &kp ESC         &none           &none                                       
+/* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */    /* 9 */      /* 10 */        /* 11 */        /* 12 */        /* 13 */        /* 14 */    
 >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;

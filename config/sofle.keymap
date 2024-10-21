@@ -50,23 +50,49 @@
     release-after-ms = <1000>;  // Default is at 1s.
 };
 
+#define COMBO_TIMEOUT 15
 / {
     combos {
         compatible = "zmk,combos";
         combo_return {
-            timeout-ms = <25>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <RM1 RM2>;  // H + A on Gallium
             bindings = <&kp RET>;
         };
         combo_tab {
-            timeout-ms = <25>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <LM2 LM3>;  // R + T on Gallium
             bindings = <&kp TAB>;
         };
         combo_esc {
-            timeout-ms = <25>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <LM1 LM2>;  // T + S on Gallium
             bindings = <&kp ESC>;
+        };
+        combo_column {
+            timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <RB2 RB3>;  // comma + semi on Gallium
+            bindings = <&kp SEMICOLON>;
+        };
+        combo_underscore {
+            timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <RM2 RM3>;  // A + E on Gallium
+            bindings = <&kp UNDERSCORE>;
+        };
+        combo_left_paren {
+            timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <LT3 LT2>;  // L + D on Gallium
+            bindings = <&kp LEFT_PARENTHESIS>;
+        };
+        combo_right_paren {
+            timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <LT2 LT1>;  // D + C on Gallium
+            bindings = <&kp RIGHT_PARENTHESIS>;
+        };
+        combo_double_quotes {
+            timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <RB1 RB2>;  // P + comma on Gallium
+            bindings = <&kp DOUBLE_QUOTES>;
         };
     };
 };
@@ -123,6 +149,13 @@
             tapping-term-ms = <200>;
             bindings = <&sk LSHFT>, <&caps_word>;
         };
+
+        paren: lparen_into_rparen {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+        };
     };
 
 
@@ -161,7 +194,7 @@
             display-name = "sym";bindings = <
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */ /* 13 */ /* 14 */   
 &none   &none    &none     &none     &none     &none                    &none   &none     &none     &none    &none    &bootloader
-&none   &kp STAR &kp LBRC  &kp LBKT  &kp LPAR  &ipdb                    &none   &kp RPAR  &kp RBKT  &kp RBRC &none    &none      
+&none   &kp STAR &kp LBRC  &kp LBKT  &paren  &ipdb                    &none   &kp RPAR  &kp RBKT  &kp RBRC &none    &none      
 &none   &kp PLUS &kp MINUS &kp EQUAL &kp UNDER &kp BSLH                 &none   &sk LCTRL &sk LSHFT &sk LALT &sk LGUI &kp RET    
 &none   &kp EXCL &kp TILDE &kp SLASH &kp HASH  &kp PIPE &trans  &trans  &none   &kp SPACE &none     &none    &none    &none      
                  &trans    &trans    &sl MEDIA &trans   &trans  &trans  &trans  &trans    &trans    &trans                       

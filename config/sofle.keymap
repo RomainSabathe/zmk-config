@@ -74,10 +74,10 @@
             key-positions = <RB2 RB3>;  // comma + semi on Gallium
             bindings = <&kp SEMICOLON>;
         };
-        combo_underscore {
+        combo_shift_tab {
             timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <RM2 RM3>;  // A + E on Gallium
-            bindings = <&kp UNDERSCORE>;
+            bindings = <&kp LS(TAB)>;
         };
         combo_left_paren {
             timeout-ms = <COMBO_TIMEOUT>;
@@ -158,26 +158,27 @@
         };
     };
 
-
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "galliumv2";bindings = <
-/* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */ /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
-&kp GRAVE &kp N1  &kp N2    &kp N3   &kp N4   &kp N5                   &kp N6    &kp N7   &kp N8   &kp N9    &kp N0    &kp MINUS
-&kp TAB   &kp B   &kp L     &kp D    &kp C    &kp V                    &kp J     &kp F    &kp O    &kp U     &kp COMMA &kp EQUAL
-&kp ESC   &kp N   &kp R     &kp T    &kp S    &kp G                    &kp Y     &kp H    &kp A    &kp E     &kp I     &kp FSLH 
-&kp LSHFT &kp X   &kp Q     &kp M    &kp W    &kp Z    &none   &none   &kp K     &kp P    &kp SQT  &kp SEMI  &kp DOT   &kp RSHFT
-                  &kp LCTRL &kp LALT &sk_shft &kp BSPC &sl NAV &sl SYM &kp SPACE &kp TAB  &kp RGUI &kp RCTRL                    
-/* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */ /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
+            display-name = "galliumv2";
+      bindings = <
+/* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
+&kp GRAVE &kp N1  &kp N2    &kp N3   &kp N4   &kp N5                   &kp N6    &kp N7    &kp N8   &kp N9    &kp N0    &kp MINUS
+&kp TAB   &kp B   &kp L     &kp D    &kp C    &kp V                    &kp J     &kp F     &kp O    &kp U     &kp COMMA &kp EQUAL
+&kp ESC   &kp N   &kp R     &kp T    &kp S    &kp G                    &kp Y     &kp H     &kp A    &kp E     &kp I     &kp FSLH 
+&kp LSHFT &kp X   &kp Q     &kp M    &kp W    &kp Z    &none   &none   &kp K     &kp P     &kp SQT  &kp SEMI  &kp DOT   &kp RSHFT
+                  &kp LCTRL &kp LALT &sk_shft &kp BSPC &sl NAV &sl SYM &kp SPACE &kp UNDER &kp RGUI &kp RCTRL                    
+/* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
 >;
 
             sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB) &inc_dec_kp LA(LS(TAB)) LA(TAB)>;
         };
 
         nav_layer {
-            display-name = "nav";bindings = <
+            display-name = "nav";
+      bindings = <
 /* 1 */     /* 2 */    /* 3 */    /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
 &bootloader &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5)                 &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
 &none       &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Y)                  &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &kp DEL          
@@ -191,21 +192,23 @@
         };
 
         sym_layer {
-            display-name = "sym";bindings = <
-/* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */ /* 13 */ /* 14 */   
-&none   &none    &none     &none     &none     &none                    &none   &none     &none     &none    &none    &bootloader
-&none   &kp STAR &kp LBRC  &kp LBKT  &paren  &ipdb                    &none   &kp RPAR  &kp RBKT  &kp RBRC &none    &none      
-&none   &kp PLUS &kp MINUS &kp EQUAL &kp UNDER &kp BSLH                 &none   &sk LCTRL &sk LSHFT &sk LALT &sk LGUI &kp RET    
-&none   &kp EXCL &kp TILDE &kp SLASH &kp HASH  &kp PIPE &trans  &trans  &none   &kp SPACE &none     &none    &none    &none      
-                 &trans    &trans    &sl MEDIA &trans   &trans  &trans  &trans  &trans    &trans    &trans                       
-/* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */ /* 13 */ /* 14 */   
+            display-name = "sym";
+      bindings = <
+/* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */  /* 13 */ /* 14 */   
+&none   &none    &none     &none     &none     &none                     &none   &none     &none     &none     &none    &bootloader
+&none   &kp LBRC &kp LBKT  &kp LPAR  &kp DQT   &kp GRAVE                 &none   &kp SQT   &kp RPAR  &kp RBKT  &kp RBRC &none      
+&none   &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp BSLH                  &none   &sk LCTRL &sk LSHFT &sk LALT  &sk LGUI &kp RET    
+&none   &kp STAR &kp TILDE &kp SLASH &kp HASH  &kp PIPE  &trans  &trans  &none   &kp SPACE &kp AT    &kp PRCNT &kp AMPS &none      
+                 &trans    &trans    &sl MEDIA &trans    &trans  &trans  &trans  &trans    &trans    &trans                        
+/* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */  /* 13 */ /* 14 */   
 >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         media_layer {
-            display-name = "media";bindings = <
+            display-name = "media";
+      bindings = <
 /* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */    /* 9 */      /* 10 */        /* 11 */        /* 12 */        /* 13 */        /* 14 */    
 &bootloader &none    &none    &none     &none     &rgb_ug RGB_TOG                    &none        &none           &none           &none           &none           &bootloader 
 &none       &none    &none    &none     &none     &none                              &none        &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none       
@@ -219,7 +222,8 @@
         };
 
         template_layer {
-            display-name = "template";bindings = <
+            display-name = "template";
+      bindings = <
 /* 1 */ /* 2 */ /* 3 */ /* 4 */ /* 5 */ /* 6 */ /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */ /* 14 */
 &none   &none   &none   &none   &none   &none                   &none   &none    &none    &none    &none    &none   
 &none   &none   &none   &none   &none   &none                   &none   &none    &none    &none    &none    &none   

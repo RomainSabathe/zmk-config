@@ -200,9 +200,9 @@
             display-name = "sym";
       bindings = <
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */  /* 13 */ /* 14 */   
-&none   &none    &none     &none     &none     &none                     &none   &none     &none     &none     &none    &none
+&none   &trans    &trans     &trans     &trans     &trans                     &trans   &trans     &trans     &trans     &trans    &none
 &none   &kp LBRC &kp LBKT  &kp LPAR  &kp DQT   &kp GRAVE                 &none   &kp SQT   &kp RPAR  &kp RBKT  &kp RBRC &none      
-&none   &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp BSLH                  &none   &sk LCTRL &sk LSHFT &sk LALT  &sk LGUI &kp RET    
+&none   &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp BSLH                  &none   &sk LCTRL &sk LSHFT &sk LALT  &sk LGUI &kp QMARK    
 &none   &kp STAR &kp TILDE &kp SLASH &kp HASH  &kp PIPE  &trans  &trans  &none   &kp SPACE &kp AT    &kp PRCNT &kp AMPS &none      
                  &trans    &trans    &trans &trans    &mo MEDIA  &trans  &trans  &trans    &trans    &bootloader                        
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */  /* 13 */ /* 14 */   

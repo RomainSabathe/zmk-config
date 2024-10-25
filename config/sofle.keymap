@@ -59,6 +59,11 @@
             key-positions = <RM1 RM2>;  // H + A on Gallium
             bindings = <&kp RET>;
         };
+        combo_return_left_hand {
+            timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <LM0 LM1>;  // S + G on Gallium
+            bindings = <&kp RET>;
+        };
         combo_tab {
             timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <LM2 LM3>;  // R + T on Gallium
@@ -79,15 +84,15 @@
             key-positions = <RM2 RM3>;  // A + E on Gallium
             bindings = <&kp LS(TAB)>;
         };
-        combo_left_paren {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <LT3 LT2>;  // L + D on Gallium
-            bindings = <&kp LEFT_PARENTHESIS>;
-        };
         combo_right_paren {
             timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <RT1 RT2>;  // F + O on Gallium
+            bindings = <&kp LEFT_PARENTHESIS>;
+        };
+        combo_left_paren {
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <LT2 LT1>;  // D + C on Gallium
-            bindings = <&kp RIGHT_PARENTHESIS>;
+            bindings = <&kp LEFT_PARENTHESIS>;
         };
         combo_double_quotes {
             timeout-ms = <COMBO_TIMEOUT>;
@@ -169,7 +174,7 @@
 &kp TAB   &kp B   &kp L     &kp D    &kp C    &kp V                    &kp J     &kp F     &kp O    &kp U     &kp COMMA &kp EQUAL
 &kp ESC   &kp N   &kp R     &kp T    &kp S    &kp G                    &kp Y     &kp H     &kp A    &kp E     &kp I     &kp FSLH 
 &kp LSHFT &kp X   &kp Q     &kp M    &kp W    &kp Z    &none   &none   &kp K     &kp P     &kp SQT  &kp SEMI  &kp DOT   &kp RSHFT
-                  &kp LCTRL &kp LALT &sk_shft &kp BSPC &sl NAV &sl SYM &kp SPACE &kp UNDER &kp RGUI &kp RCTRL                    
+                  &kp LCTRL &kp LALT &sk_shft &kp BSPC &mo NAV &mo SYM &kp SPACE &kp UNDER &kp RGUI &kp RCTRL                    
 /* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
 >;
 
@@ -182,9 +187,9 @@
 /* 1 */     /* 2 */    /* 3 */    /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
 &bootloader &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5)                 &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
 &none       &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Y)                  &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &kp DEL          
-&kp LA(RET) &sk LGUI   &sk LALT   &sk LSHFT  &sk LCTRL  &kp LA(B)                  &kp BSPC      &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp RET          
+&kp LA(LS(Q)) &sk LGUI   &sk LALT   &sk LSHFT  &sk LCTRL  &kp LA(B)                  &kp BSPC      &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp RET          
 &none       &kp LA(R)  &kp LA(D)  &kp LC(A)  &kp LA(F)  &kp LA(V)  &trans  &trans  &caps_word    &kp HOME    &kp PG_DN   &kp PG_UP       &kp END         &none            
-                       &trans     &trans     &trans     &trans     &trans  &sl MEDIA  &trans        &trans   &trans      &trans                                           
+                       &trans     &trans     &trans     &trans     &trans  &mo MEDIA  &trans        &trans   &trans      &trans                                           
 /* 1 */     /* 2 */    /* 3 */    /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
 >;
 
@@ -199,7 +204,7 @@
 &none   &kp LBRC &kp LBKT  &kp LPAR  &kp DQT   &kp GRAVE                 &none   &kp SQT   &kp RPAR  &kp RBKT  &kp RBRC &none      
 &none   &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp BSLH                  &none   &sk LCTRL &sk LSHFT &sk LALT  &sk LGUI &kp RET    
 &none   &kp STAR &kp TILDE &kp SLASH &kp HASH  &kp PIPE  &trans  &trans  &none   &kp SPACE &kp AT    &kp PRCNT &kp AMPS &none      
-                 &trans    &trans    &trans &trans    &sl MEDIA  &trans  &trans  &trans    &trans    &trans                        
+                 &trans    &trans    &trans &trans    &mo MEDIA  &trans  &trans  &trans    &trans    &trans                        
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */ /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */  /* 13 */ /* 14 */   
 >;
 

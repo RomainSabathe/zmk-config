@@ -87,7 +87,7 @@
         combo_right_paren {
             timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <RT1 RT2>;  // F + O on Gallium
-            bindings = <&kp LEFT_PARENTHESIS>;
+            bindings = <&kp RIGHT_PARENTHESIS>;
         };
         combo_left_paren {
             timeout-ms = <COMBO_TIMEOUT>;

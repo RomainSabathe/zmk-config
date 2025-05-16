@@ -18,7 +18,6 @@
 #define NAV 1
 #define SYM 2
 #define MEDIA 3
-#define MAC 4
 
 /*
   ╭────────────────────────────┬────────────────────────────╮ ╭─────────────────────────────┬─────────────────────────────╮
@@ -168,7 +167,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "windows/linux";
+            display-name = "linux";
 bindings = <
 /* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
 &kp GRAVE &kp N1  &kp N2    &kp N3   &kp N4   &kp N5                   &kp N6    &kp N7    &kp N8   &kp N9    &kp N0    &kp MINUS
@@ -177,21 +176,6 @@ bindings = <
 &kp LSHFT &kp X   &kp Q     &kp M    &kp W    &kp Z    &none   &none   &kp K     &kp P     &kp SQT  &kp SEMI  &kp DOT   &kp RSHFT
                   &kp LCTRL &kp LGUI &sk_shft &kp BSPC &mo NAV &mo SYM &kp SPACE &kp UNDER &kp RGUI &kp RCTRL                    
 /* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
->;
-
-            sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB) &inc_dec_kp LA(LS(TAB)) LA(TAB)>;
-        };
-
-        default_mac_layer {
-            display-name = "mac";
-bindings = <
-/* 1 */ /* 2 */ /* 3 */  /* 4 */ /* 5 */ /* 6 */ /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */ /* 14 */
-&trans  &trans  &trans   &trans  &trans  &trans                  &trans  &trans   &trans   &trans   &trans   &trans  
-&trans  &trans  &trans   &trans  &trans  &trans                  &trans  &trans   &trans   &trans   &trans   &trans  
-&trans  &trans  &trans   &trans  &trans  &trans                  &trans  &trans   &trans   &trans   &trans   &trans  
-&trans  &trans  &trans   &trans  &trans  &trans  &none   &none   &trans  &trans   &trans   &trans   &trans   &trans  
-                &kp LGUI &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans                    
-/* 1 */ /* 2 */ /* 3 */  /* 4 */ /* 5 */ /* 6 */ /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */ /* 14 */
 >;
 
             sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB) &inc_dec_kp LA(LS(TAB)) LA(TAB)>;
@@ -234,7 +218,7 @@ bindings = <
 &bootloader &none    &none    &none     &none     &rgb_ug RGB_TOG                    &none        &none           &none           &none           &none           &bootloader 
 &none       &none    &none    &none     &none     &none                              &none        &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none       
 &none       &sk LGUI &sk LALT &sk LSHFT &sk LCTRL &none                              &bl BL_TOG   &kp C_PREV      &kp C_RW        &kp C_FF        &kp C_NEXT      &none       
-&none       &none    &none    &none     &tog MAC  &none           &trans  &trans     &out OUT_TOG &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4
+&none       &none    &none    &none     &none  &none           &trans  &trans     &out OUT_TOG &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4
                      &none    &none     &none     &none           &none   &kp C_STOP &kp C_PP     &kp ESC         &none           &none                                       
 /* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */    /* 9 */      /* 10 */        /* 11 */        /* 12 */        /* 13 */        /* 14 */    
 >;

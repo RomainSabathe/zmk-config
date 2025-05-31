@@ -6,9 +6,14 @@
       url = "github:lilyinstarlight/zmk-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
 
-  outputs = { self, nixpkgs, zmk-nix }: let
+    zmk-helpers = {
+      url = "github:urob/zmk-helpers";
+      flake = false;
+    };
+};
+
+  outputs = { self, nixpkgs, zmk-nix, zmk-helpers }: let
     forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
   in {
     packages = forAllSystems (system: rec {
@@ -23,6 +28,10 @@
         shield = "sofle_%PART%";
 
         zephyrDepsHash = "sha256-reAWLQgGuZQiCiN5yGoVlbN6CT5yxl7lEk2/HbvL2x4=";
+
+        extraCmakeFlags = [
+          "-DZMK_EXTRA_MODULES=${zmk-helpers}"
+        ];
 
         meta = {
           description = "ZMK firmware";

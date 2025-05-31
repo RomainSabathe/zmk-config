@@ -29,9 +29,15 @@
 
         zephyrDepsHash = "sha256-reAWLQgGuZQiCiN5yGoVlbN6CT5yxl7lEk2/HbvL2x4=";
 
-        extraCmakeFlags = [
-          "-DZMK_EXTRA_MODULES=${zmk-helpers}"
-        ];
+        # preConfigure = ''
+        #   # Combine your local module root with zmk-helpers
+        #   westBuildFlagsArray+=("-DZMK_EXTRA_MODULES=$(readlink -f .);${zmk-helpers}")
+        # '';
+        preConfigure = ''
+          # Include zmk-helpers
+          westBuildFlagsArray+=("-DZMK_EXTRA_MODULES=${zmk-helpers}")
+        '';
+
 
         meta = {
           description = "ZMK firmware";

@@ -45,7 +45,7 @@ def keymap_str_to_matrix(bindings_str: str) -> List[List[str]]:
     matrix = []
     # Making the first row and last row of the matrix a comment with the key
     # index, for easier mapping and understanding.
-    index_row = [f"/* {i+1} */" for i in range(14)]
+    index_row = [f"/* {i + 1} */" for i in range(14)]
     matrix.append(index_row)
 
     for i, line in enumerate(lines):
@@ -64,15 +64,13 @@ def keymap_str_to_matrix(bindings_str: str) -> List[List[str]]:
     # Adding the index row at the end as well.
     matrix.append(index_row)
 
-    assert (
-        len(matrix) - 2 == 5
-    ), (
-        f"Expected 5 keyboard rows, got {len(matrix)-2}"
+    assert len(matrix) - 2 == 5, (
+        f"Expected 5 keyboard rows, got {len(matrix) - 2}"
     )  # minus 2 because we don't want to count the two extra index rows.
     for i, row in enumerate(matrix):
-        assert (
-            len(row) == 14
-        ), f"Expected each keyboard row to have 14 keys, got {len(row)} for row {i}\n{row}"
+        assert len(row) == 14, (
+            f"Expected each keyboard row to have 14 keys, got {len(row)} for row {i}\n{row}"
+        )
     return matrix
 
 

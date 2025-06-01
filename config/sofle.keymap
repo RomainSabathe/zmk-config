@@ -41,8 +41,12 @@
 // Sticky key
 &sk {
     release-after-ms = <3000>; // Default is at 1s.
-    quick-release;  // Releasing the stiky key as soon as another key is pressed (instead of released). This prevents having multiple letters capitalised in case of a fast roll for instance.
-    ignore-modifiers;  // This is activated by default. The stiky behavior continues when a modifier key is pressed. Allows to combine modifiers (a la Callum mods).
+    // Releasing the stiky key as soon as another key is pressed (instead of released). This
+    // prevents having multiple letters capitalised in case of a fast roll for instance.
+    quick-release;  
+    // This is activated by default. The stiky behavior continues when a modifier key is
+    // pressed. Allows to combine modifiers (a la Callum mods).
+    ignore-modifiers;  
 };
 
 // Sticky layer
@@ -104,20 +108,6 @@
 
 / {
     macros {
-        ipdb: ipdb {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp O>
-                , <&macro_tap &kp I &kp M &kp P &kp O &kp R &kp T &kp SPACE>
-                , <&macro_tap &kp I &kp P &kp D &kp B &kp SEMICOLON &kp SPACE>
-                , <&macro_tap &kp I &kp P &kp D &kp B &kp DOT>
-                , <&macro_tap &kp S &kp E &kp T &kp UNDER &kp T &kp R &kp A &kp C &kp E &kp LPAR &kp RPAR> 
-                , <&macro_tap &kp RET>
-                , <&macro_tap &kp P &kp A &kp S &kp S>
-                , <&macro_tap &kp ESC &kp J &kp N0>
-                ;
-        };
     };
 };
 

@@ -6,7 +6,7 @@ WINDOWS_PATH ?= Desktop/firmware
 
 .PHONY: build flash clean copy-windows dev dev-wsl
 
-build:
+build: format
 	nix build
 
 flash: build
@@ -27,8 +27,8 @@ copy-windows: build
 	else \
 		echo "Not in WSL, skipping Windows copy"; \
 	fi
-format:
 
+format:
 	uv run python utils/format_keymap.py
 
 # Development workflows
@@ -43,4 +43,5 @@ help:
 	@echo "  copy-windows - Copy firmware to Windows (WSL only)"
 	@echo "  dev          - Build and flash"
 	@echo "  dev-wsl      - Build, copy to Windows, and flash"
+	@echo "  format       - Format the keymap file"
 	@echo "  clean        - Clean nix store"

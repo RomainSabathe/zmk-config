@@ -27,7 +27,7 @@
         board = "nice_nano_v2";
         shield = "sofle_%PART%";
 
-        zephyrDepsHash = "sha256-reAWLQgGuZQiCiN5yGoVlbN6CT5yxl7lEk2/HbvL2x4=";
+        zephyrDepsHash = "sha256-Y51nvjjksKf3/+JQ8tXb1m+3WalVMQ/1K0ullt01sgc=";
 
         # preConfigure = ''
         #   # Combine your local module root with zmk-helpers

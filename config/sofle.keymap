@@ -188,7 +188,7 @@
 
         default_layer {
             display-name = "linux";
-     bindings = <
+ bindings = <
 /* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
 &kp GRAVE &kp N1  &kp N2    &kp N3   &kp N4   &kp N5                   &kp N6    &kp N7    &kp N8   &kp N9    &kp N0    &kp MINUS
 &kp TAB   &kp B   &kp L     &kp D    &kp C    &kp V                    &kp J     &kp F     &kp O    &kp U     &kp COMMA &kp EQUAL
@@ -203,7 +203,7 @@
 
         nav_layer {
             display-name = "nav";
-     bindings = <
+ bindings = <
 /* 1 */       /* 2 */    /* 3 */     /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */   /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
 &none         &kp LA(N1) &kp LA(N2)  &kp LA(N3) &kp LA(N4) &kp LA(N5)                   &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
 &none         &kp LC(Z)  &kp LC(X)   &kp LC(C)  &kp LC(V)  &kp LC(Y)                    &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &kp DEL          
@@ -218,7 +218,7 @@
 
         sym_layer {
             display-name = "sym";
-     bindings = <
+ bindings = <
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */   /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */    /* 13 */ /* 14 */ 
 &none   &trans   &trans    &trans    &trans    &trans                      &trans  &trans    &trans    &trans      &trans   &none    
 &none   &kp LBRC &kp LBKT  &kp LPAR  &kp DQT   &kp GRAVE                   &none   &kp SQT   &kp RPAR  &kp RBKT    &kp RBRC &none    
@@ -233,14 +233,14 @@
 
         media_layer {
             display-name = "media";
-         bindings = <
-/* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */    /* 9 */      /* 10 */        /* 11 */        /* 12 */        /* 13 */        /* 14 */    
-&bootloader &none    &none    &none     &none     &rgb_ug RGB_TOG                    &none        &none           &none           &none           &none           &bootloader 
-&none       &none    &none    &none     &none     &none                              &none        &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &none       
-&none       &sk LGUI &sk LALT &sk LSHFT &sk LCTRL &kp LA(B)                          &bl BL_TOG   &kp C_PREV      &kp C_RW        &kp C_FF        &kp C_NEXT      &none       
-&none       &none    &none    &none     &none     &kp LA(V)       &trans  &trans     &out OUT_TOG &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4
-                     &none    &none     &none     &none           &none   &kp C_STOP &kp C_PP     &kp ESC         &none           &none                                       
-/* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */    /* 9 */      /* 10 */        /* 11 */        /* 12 */        /* 13 */        /* 14 */    
+bindings = <
+/* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */ /* 14 */   
+&bootloader &none    &none    &none     &none     &rgb_ug RGB_TOG                 &none   &none    &none    &none    &none    &bootloader
+&none       &none    &none    &none     &none     &none                           &none   &kp N7   &kp N8   &kp N9   &none    &none      
+&none       &sk LGUI &sk LALT &sk LSHFT &sk LCTRL &kp LA(B)                       &none   &kp N4   &kp N5   &kp N6   &kp N0   &none      
+&none       &none    &none    &none     &none     &kp LA(V)       &trans  &trans  &none   &kp N1   &kp N2   &kp N3   &none    &none      
+                     &none    &none     &none     &none           &none   &none   &none   &none    &none    &none                        
+/* 1 */     /* 2 */  /* 3 */  /* 4 */   /* 5 */   /* 6 */         /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */ /* 14 */   
 >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;

@@ -19,7 +19,9 @@ clean:
 copy-windows: build
 	@if [ -f /proc/version ] && grep -qi microsoft /proc/version; then \
 		echo "Copying firmware to Windows..."; \
-		mkdir -p "/mnt/c/Users/$(WINDOWS_USERNAME)/$(WINDOWS_PATH)"; \
+		WIN_DIR="/mnt/c/Users/$(WINDOWS_USERNAME)/$(WINDOWS_PATH)"; \
+		mkdir -p "$$WIN_DIR"; \
+		rm -f "$$WIN_DIR"/*.uf2; \
 		find -L result -name "*.uf2" -type f -exec cp -v {} "/mnt/c/Users/$(WINDOWS_USERNAME)/$(WINDOWS_PATH)/" \; ; \
 		echo "Firmware copied to /mnt/c/Users/$(WINDOWS_USERNAME)/$(WINDOWS_PATH)"; \
 	else \

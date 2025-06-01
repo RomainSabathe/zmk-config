@@ -8,7 +8,7 @@ def format_bindings(input_string, custom_fn):
         return f"bindings = <\n{custom_fn(content)}\n>;"
 
     return re.sub(
-        r"\s\bbindings\s*=\s*<\s*\n([\n+\s\S]*?)>;",
+        r"\s?\bbindings\s*=\s*<\s*\n([\n+\s\S]*?)>;",
         replacement,
         input_string,
         flags=re.DOTALL,

@@ -1,5 +1,5 @@
-from typing import List
 import re
+from typing import List
 
 
 def format_bindings(input_string, custom_fn):
@@ -66,7 +66,9 @@ def keymap_str_to_matrix(bindings_str: str) -> List[List[str]]:
 
     assert (
         len(matrix) - 2 == 5
-    ), f"Expected 5 keyboard rows, got {len(matrix)-2}"  # minus 2 because we don't want to count the two extra index rows.
+    ), (
+        f"Expected 5 keyboard rows, got {len(matrix)-2}"
+    )  # minus 2 because we don't want to count the two extra index rows.
     for i, row in enumerate(matrix):
         assert (
             len(row) == 14

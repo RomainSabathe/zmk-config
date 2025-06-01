@@ -1,0 +1,7 @@
+[project]
+name = "zmk-config"
+version = "0.1.0"
+description = "ZMK config for my different keyboards"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []

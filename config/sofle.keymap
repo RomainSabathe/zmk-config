@@ -188,7 +188,7 @@
 
         default_layer {
             display-name = "linux";
-          bindings = <
+     bindings = <
 /* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
 &kp GRAVE &kp N1  &kp N2    &kp N3   &kp N4   &kp N5                   &kp N6    &kp N7    &kp N8   &kp N9    &kp N0    &kp MINUS
 &kp TAB   &kp B   &kp L     &kp D    &kp C    &kp V                    &kp J     &kp F     &kp O    &kp U     &kp COMMA &kp EQUAL
@@ -203,11 +203,11 @@
 
         nav_layer {
             display-name = "nav";
-          bindings = <
+     bindings = <
 /* 1 */       /* 2 */    /* 3 */     /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */   /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
 &none         &kp LA(N1) &kp LA(N2)  &kp LA(N3) &kp LA(N4) &kp LA(N5)                   &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
 &none         &kp LC(Z)  &kp LC(X)   &kp LC(C)  &kp LC(V)  &kp LC(Y)                    &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &kp DEL          
-&kp LA(LS(Q)) &sk LGUI   &sk LALT    &sk LSHFT  &sk LCTRL  &kp ESC                      &kp BSPC      &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp RET          
+&kp LA(LS(Q)) &sk LGUI   &sk LALT    &sk LSHFT  &sk LCTRL  &kp ESC                      &kp RET       &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp RET          
 &none         &kp LA(R)  &kp LA(D)   &kp LC(A)  &kp LA(F)  &none      &trans  &trans    &caps_word    &kp HOME    &kp PG_DN   &kp PG_UP       &kp END         &none            
                          &bootloader &trans     &trans     &trans     &trans  &mo MEDIA &trans        &trans      &trans      &trans                                           
 /* 1 */       /* 2 */    /* 3 */     /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */   /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
@@ -218,11 +218,11 @@
 
         sym_layer {
             display-name = "sym";
-          bindings = <
+     bindings = <
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */   /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */    /* 13 */ /* 14 */ 
 &none   &trans   &trans    &trans    &trans    &trans                      &trans  &trans    &trans    &trans      &trans   &none    
 &none   &kp LBRC &kp LBKT  &kp LPAR  &kp DQT   &kp GRAVE                   &none   &kp SQT   &kp RPAR  &kp RBKT    &kp RBRC &none    
-&none   &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp BSLH                    &kp RET &sk LCTRL &sk LSHFT &sk LALT    &sk LGUI &kp QMARK
+&none   &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp ESC                     &kp RET &sk LCTRL &sk LSHFT &sk LALT    &sk LGUI &kp QMARK
 &none   &kp STAR &kp TILDE &kp SLASH &kp HASH  &kp PIPE  &trans    &trans  &none   &kp SPACE &kp AT    &kp PRCNT   &kp AMPS &none    
                  &trans    &trans    &trans    &trans    &mo MEDIA &trans  &trans  &trans    &trans    &bootloader                   
 /* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */   /* 7 */   /* 8 */ /* 9 */ /* 10 */  /* 11 */  /* 12 */    /* 13 */ /* 14 */ 

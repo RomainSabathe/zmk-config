@@ -11,9 +11,14 @@
       url = "github:urob/zmk-helpers";
       flake = false;
     };
-};
+  };
 
-  outputs = { self, nixpkgs, zmk-nix, zmk-helpers }: let
+  outputs = {
+    self,
+    nixpkgs,
+    zmk-nix,
+    zmk-helpers,
+  }: let
     forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
   in {
     packages = forAllSystems (system: rec {
@@ -22,7 +27,7 @@
       firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
         name = "firmware";
 
-        src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
+        src = nixpkgs.lib.sourceFilesBySuffices self [".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig"];
 
         board = "nice_nano_v2";
         shield = "sofle_%PART%";
@@ -34,7 +39,6 @@
           westBuildFlagsArray+=("-DZMK_EXTRA_MODULES=${zmk-helpers}")
         '';
 
-
         meta = {
           description = "ZMK firmware";
           license = nixpkgs.lib.licenses.mit;
@@ -42,7 +46,7 @@
         };
       };
 
-      flash = zmk-nix.packages.${system}.flash.override { inherit firmware; };
+      flash = zmk-nix.packages.${system}.flash.override {inherit firmware;};
       update = zmk-nix.packages.${system}.update;
     });
 

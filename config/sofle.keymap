@@ -17,7 +17,11 @@
 #define BASE 0
 #define NAV 1
 #define SYM 2
-#define MEDIA 3
+#define NUM 3
+#define MAC_BASE 4
+#define MAC_NAV 5
+#define MAC_SYM 6
+#define MAC_NUM 7
 
 /*
   ╭────────────────────────────┬────────────────────────────╮ ╭─────────────────────────────┬─────────────────────────────╮
@@ -186,6 +190,7 @@
     keymap {
         compatible = "zmk,keymap";
 
+        // BASE ------------------------------------------------------------------------------------------------------------------
         default_layer {
             display-name = "linux";bindings = <
 /* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
@@ -196,63 +201,104 @@
                   &kp LCTRL &kp LGUI &sk_shft &kp BSPC &mo NAV &mo SYM &kp SPACE &kp UNDER &kp RGUI &kp RCTRL                    
 /* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
 >;
-
             sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB) &inc_dec_kp LA(LS(TAB)) LA(TAB)>;
         };
 
+        // NAV ------------------------------------------------------------------------------------------------------------------
         nav_layer {
             display-name = "nav";bindings = <
-/* 1 */       /* 2 */    /* 3 */     /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */   /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
-&none         &kp LA(N1) &kp LA(N2)  &kp LA(N3) &kp LA(N4) &kp LA(N5)                   &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
-&none         &kp LC(Z)  &kp LC(X)   &kp LC(C)  &kp LC(V)  &kp LC(Y)                    &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &kp DEL          
-&kp LA(LS(Q)) &sk LGUI   &sk LALT    &sk LSHFT  &sk LCTRL  &kp ESC                      &kp RET       &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp RET          
-&none         &kp LA(R)  &kp LA(D)   &kp LC(A)  &kp LA(F)  &kp LA(F)  &trans  &trans    &caps_word    &kp HOME    &kp PG_DN   &kp PG_UP       &kp END         &none            
-                         &bootloader &trans     &trans     &trans     &trans  &mo MEDIA &trans        &trans      &trans      &trans                                           
-/* 1 */       /* 2 */    /* 3 */     /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */   /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
+/* 1 */       /* 2 */    /* 3 */     /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
+&none         &kp LA(N1) &kp LA(N2)  &kp LA(N3) &kp LA(N4) &kp LA(N5)                 &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
+&none         &kp LC(Z)  &kp LC(X)   &kp LC(C)  &kp LC(V)  &kp LC(Y)                  &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &kp DEL          
+&kp LA(LS(Q)) &sk LGUI   &sk LALT    &sk LSHFT  &sk LCTRL  &kp ESC                    &kp RET       &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp RET          
+&none         &kp LA(R)  &kp LA(D)   &kp LC(A)  &kp LA(F)  &none      &trans  &trans  &caps_word    &kp HOME    &kp PG_DN   &kp PG_UP       &kp END         &none            
+                         &bootloader &trans     &trans     &trans     &trans  &mo NUM &trans        &trans      &trans      &trans                                           
+/* 1 */       /* 2 */    /* 3 */     /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
 >;
-
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
+        // SYM ------------------------------------------------------------------------------------------------------------------
         sym_layer {
             display-name = "sym";bindings = <
-/* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */   /* 8 */ /* 9 */   /* 10 */  /* 11 */  /* 12 */    /* 13 */ /* 14 */ 
-&none   &trans   &trans    &trans    &trans    &trans                     &trans    &trans    &trans    &trans      &trans   &none    
-&none   &kp LBRC &kp LBKT  &kp LPAR  &kp DQT   &kp PIPE                   &kp GRAVE &kp SQT   &kp RPAR  &kp RBKT    &kp RBRC &none    
-&none   &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp ESC                    &kp RET   &sk LCTRL &sk LSHFT &sk LALT    &sk LGUI &kp QMARK
-&none   &kp STAR &kp TILDE &kp SLASH &kp HASH  &kp BSLH &trans    &trans  &kp QMARK &kp SPACE &kp AT    &kp PRCNT   &kp AMPS &none    
-                 &trans    &trans    &trans    &trans   &mo MEDIA &trans  &trans    &trans    &trans    &bootloader                   
-/* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */   /* 8 */ /* 9 */   /* 10 */  /* 11 */  /* 12 */    /* 13 */ /* 14 */ 
+/* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */  /* 12 */    /* 13 */ /* 14 */ 
+&none   &trans   &trans    &trans    &trans    &trans                   &trans    &trans    &trans    &trans      &trans   &none    
+&none   &kp LBRC &kp LBKT  &kp LPAR  &kp DQT   &kp PIPE                 &kp GRAVE &kp SQT   &kp RPAR  &kp RBKT    &kp RBRC &none    
+&none   &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp ESC                  &kp RET   &sk LCTRL &sk LSHFT &sk LALT    &sk LGUI &kp QMARK
+&none   &kp STAR &kp TILDE &kp SLASH &kp HASH  &kp BSLH &trans  &trans  &kp QMARK &kp SPACE &kp AT    &kp PRCNT   &kp AMPS &none    
+                 &trans    &trans    &trans    &trans   &mo NUM &trans  &trans    &trans    &trans    &bootloader                   
+/* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */ /* 8 */ /* 9 */   /* 10 */  /* 11 */  /* 12 */    /* 13 */ /* 14 */ 
 >;
-
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        media_layer {
-            display-name = "media";bindings = <
-/* 1 */ /* 2 */  /* 3 */  /* 4 */   /* 5 */     /* 6 */         /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */  /* 14 */
-&none   &none    &none    &none     &none       &rgb_ug RGB_TOG                 &none   &none    &none    &none    &none     &none   
-&none   &none    &none    &kp TAB   &kp LS(TAB) &none                           &none   &kp N7   &kp N8   &kp N9   &kp COMMA &none   
-&none   &sk LGUI &sk LALT &sk LSHFT &sk LCTRL   &kp LA(B)                       &none   &kp N4   &kp N5   &kp N6   &kp N0    &none   
-&none   &none    &none    &none     &none       &kp LA(V)       &trans  &trans  &none   &kp N1   &kp N2   &kp N3   &kp DOT   &none   
-                 &none    &none     &none       &none           &none   &none   &none   &none    &none    &none                      
-/* 1 */ /* 2 */  /* 3 */  /* 4 */   /* 5 */     /* 6 */         /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */  /* 14 */
+        // NUM ------------------------------------------------------------------------------------------------------------------
+        num_layer {
+            display-name = "num";bindings = <
+/* 1 */ /* 2 */  /* 3 */      /* 4 */   /* 5 */     /* 6 */         /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */     /* 13 */  /* 14 */
+&none   &none    &none        &none     &none       &rgb_ug RGB_TOG                 &none   &none    &none    &none        &none     &none   
+&none   &none    &none        &kp TAB   &kp LS(TAB) &none                           &none   &kp N7   &kp N8   &kp N9       &kp COMMA &none   
+&none   &sk LGUI &sk LALT     &sk LSHFT &sk LCTRL   &kp LA(B)                       &none   &kp N4   &kp N5   &kp N6       &kp N0    &none   
+&none   &none    &none        &none     &none       &kp LA(V)       &trans  &trans  &none   &kp N1   &kp N2   &kp N3       &kp DOT   &none   
+                 &to MAC_BASE &none     &none       &none           &none   &none   &none   &none    &none    &to MAC_BASE                   
+/* 1 */ /* 2 */  /* 3 */      /* 4 */   /* 5 */     /* 6 */         /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */     /* 13 */  /* 14 */
 >;
-
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        template_layer {
-            display-name = "template";bindings = <
-/* 1 */ /* 2 */ /* 3 */ /* 4 */ /* 5 */ /* 6 */ /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */ /* 14 */
-&none   &none   &none   &none   &none   &none                   &none   &none    &none    &none    &none    &none   
-&none   &none   &none   &none   &none   &none                   &none   &none    &none    &none    &none    &none   
-&none   &none   &none   &none   &none   &none                   &none   &none    &none    &none    &none    &none   
-&none   &none   &none   &none   &none   &none   &trans  &trans  &none   &none    &none    &none    &none    &none   
-                &none   &none   &none   &none   &none   &none   &none   &none    &none    &none                     
-/* 1 */ /* 2 */ /* 3 */ /* 4 */ /* 5 */ /* 6 */ /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */ /* 14 */
+        // MAC_BASE --------------------------------------------------------------------------------------------------------------
+        mac_base_layer {
+            display-name = "mac";bindings = <
+/* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */     /* 8 */     /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
+&kp GRAVE &kp N1  &kp N2    &kp N3   &kp N4   &kp N5                           &kp N6    &kp N7    &kp N8   &kp N9    &kp N0    &kp MINUS
+&kp TAB   &kp B   &kp L     &kp D    &kp C    &kp V                            &kp J     &kp F     &kp O    &kp U     &kp COMMA &kp EQUAL
+&kp ESC   &kp N   &kp R     &kp T    &kp S    &kp G                            &kp Y     &kp H     &kp A    &kp E     &kp I     &kp FSLH 
+&kp LSHFT &kp X   &kp Q     &kp M    &kp W    &kp Z    &none       &none       &kp K     &kp P     &kp SQT  &kp SEMI  &kp DOT   &kp RSHFT
+                  &kp LCTRL &kp LGUI &sk_shft &kp BSPC &mo MAC_NAV &mo MAC_SYM &kp SPACE &kp UNDER &kp RGUI &kp RCTRL                    
+/* 1 */   /* 2 */ /* 3 */   /* 4 */  /* 5 */  /* 6 */  /* 7 */     /* 8 */     /* 9 */   /* 10 */  /* 11 */ /* 12 */  /* 13 */  /* 14 */ 
 >;
+            sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB) &inc_dec_kp LA(LS(TAB)) LA(TAB)>;
+        };
 
+        // MAC_NAV ------------------------------------------------------------------------------------------------------------------
+        mac_nav_layer {
+            display-name = "mac-nav";bindings = <
+/* 1 */       /* 2 */    /* 3 */     /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */     /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
+&none         &kp LA(N1) &kp LA(N2)  &kp LA(N3) &kp LA(N4) &kp LA(N5)                     &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
+&none         &kp LG(Z)  &kp LG(X)   &kp LG(C)  &kp LG(V)  &kp LG(Y)                      &kp LG(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &kp DEL          
+&kp LA(LS(Q)) &sk LCTRL  &sk LALT    &sk LSHFT  &sk LGUI   &kp ESC                        &kp RET       &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp RET          
+&none         &kp LA(R)  &kp LA(D)   &kp LG(A)  &kp LA(F)  &none      &trans  &trans      &caps_word    &kp HOME    &kp PG_DN   &kp PG_UP       &kp END         &none            
+                         &bootloader &trans     &trans     &trans     &trans  &mo MAC_NUM &trans        &trans      &trans      &trans                                           
+/* 1 */       /* 2 */    /* 3 */     /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */     /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
+>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        // MAC_SYM ------------------------------------------------------------------------------------------------------------------
+        mac_sym_layer {
+            display-name = "mac-sym";bindings = <
+/* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */     /* 8 */ /* 9 */   /* 10 */  /* 11 */  /* 12 */    /* 13 */  /* 14 */ 
+&none   &trans   &trans    &trans    &trans    &trans                       &trans    &trans    &trans    &trans      &trans    &none    
+&none   &kp LBRC &kp LBKT  &kp LPAR  &kp DQT   &kp PIPE                     &kp GRAVE &kp SQT   &kp RPAR  &kp RBKT    &kp RBRC  &none    
+&none   &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp ESC                      &kp RET   &sk LGUI  &sk LSHFT &sk LALT    &sk LCTRL &kp QMARK
+&none   &kp STAR &kp TILDE &kp SLASH &kp HASH  &kp BSLH &trans      &trans  &kp QMARK &kp SPACE &kp AT    &kp PRCNT   &kp AMPS  &none    
+                 &trans    &trans    &trans    &trans   &mo MAC_NUM &trans  &trans    &trans    &trans    &bootloader                    
+/* 1 */ /* 2 */  /* 3 */   /* 4 */   /* 5 */   /* 6 */  /* 7 */     /* 8 */ /* 9 */   /* 10 */  /* 11 */  /* 12 */    /* 13 */  /* 14 */ 
+>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        // MAC_NUM ------------------------------------------------------------------------------------------------------------------
+        mac_num_layer {
+            display-name = "mac-num";bindings = <
+/* 1 */ /* 2 */   /* 3 */  /* 4 */   /* 5 */     /* 6 */         /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */  /* 14 */
+&none   &none     &none    &none     &none       &rgb_ug RGB_TOG                 &none   &none    &none    &none    &none     &none   
+&none   &none     &none    &kp TAB   &kp LS(TAB) &none                           &none   &kp N7   &kp N8   &kp N9   &kp COMMA &none   
+&none   &sk LCTRL &sk LALT &sk LSHFT &sk LGUI    &kp LA(B)                       &none   &kp N4   &kp N5   &kp N6   &kp N0    &none   
+&none   &none     &none    &none     &none       &kp LA(V)       &trans  &trans  &none   &kp N1   &kp N2   &kp N3   &kp DOT   &none   
+                  &to BASE &none     &none       &none           &none   &none   &none   &none    &none    &to BASE                   
+/* 1 */ /* 2 */   /* 3 */  /* 4 */   /* 5 */     /* 6 */         /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */  /* 14 */
+>;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
     };

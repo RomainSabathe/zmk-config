@@ -18,10 +18,6 @@
 
 #pragma once
 
-#define ONESHOT_TAP_TOGGLE 5  /* Tapping this number of times holds the key until tapped once again. */
-#define ONESHOT_TIMEOUT 3000  /* Time (in ms) before the one shot key is released */
-
-#define COMBO_TERM 20
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
@@ -42,8 +38,6 @@
 
 /* Caps locks LED index default is 0 (LED1 on PCB) */
 #define CAPS_LOCK_LED_INDEX 44
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-#define CAPS_WORD_INVERT_ON_SHIFT
 // RGB Matrix Animation modes. Explicitly enabled
 // For full list of effects, see:
 // https://docs.qmk.fm/#/feature_rgb_matrix?id=rgb-matrix-effects
@@ -92,5 +86,5 @@
 #define ENABLE_RGB_MATRIX_MULTISPLASH
 #define ENABLE_RGB_MATRIX_SOLID_SPLASH
 #define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
-
+    
 #endif

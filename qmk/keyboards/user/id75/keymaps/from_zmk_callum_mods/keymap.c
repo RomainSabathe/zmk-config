@@ -16,6 +16,10 @@
 #include QMK_KEYBOARD_H
 #include "keymap_us_international.h"
 #include "sendstring_us_international.h"
+#include "oneshot.h"
+
+#define LA_SYM MO(SYM)
+#define LA_NAV MO(NAV)
 
 // Layer definitions
 enum layers {
@@ -32,6 +36,19 @@ enum custom_keycodes {
     KC_SYMSP
 };
 
+
+enum keycodes {
+    // Custom oneshot mod implementation with no timers.
+    OS_SHFT = SAFE_RANGE,
+    OS_CTRL,
+    OS_ALT,
+    OS_CMD,
+
+    SW_WIN,  // Switch to next window         (cmd-tab)
+    SW_LANG, // Switch to next input language (ctl-spc)
+};
+
+
 // tap dance
 typedef struct {
     bool is_press_action;
@@ -45,20 +62,40 @@ enum {
     DOUBLE_TAP
 };
 
-// Function declarations for tap dancing
+const uint16_t PROGMEM combo_enter[] = {KC_H, KC_A, COMBO_END};
+const uint16_t PROGMEM combo_enter_left_hand[] = {KC_S, KC_G, COMBO_END};
+const uint16_t PROGMEM combo_escape[] = {KC_T, KC_S, COMBO_END};
+const uint16_t PROGMEM combo_tab[] = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM combo_shift_tab[] = {KC_A, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_colon[] = {KC_QUOT, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM combo_left_paren[] = {KC_L, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_right_paren[] = {KC_D, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_double_quote[] = {KC_P, KC_QUOT, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(combo_enter, KC_ENT),
+    COMBO(combo_enter_left_hand, KC_ENT),
+    COMBO(combo_escape, KC_ESC),
+    COMBO(combo_tab, KC_TAB),
+    COMBO(combo_shift_tab, LSFT(KC_TAB)),
+    COMBO(combo_colon, KC_COLON),
+    COMBO(combo_left_paren, KC_LPRN),
+    COMBO(combo_right_paren, KC_RPRN),
+    COMBO(combo_double_quote, KC_DOUBLE_QUOTE),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ortho_5x15(
         KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,  KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS, KC_EQL, KC_BSLS, KC_BSPC,
         KC_TAB,  KC_B,    KC_L,    KC_D,    KC_C,    KC_V,  KC_VOLD, KC_VOLU, KC_J,    KC_F,    KC_O,    KC_U,    KC_COMM, KC_LBRC, KC_RBRC,
         KC_ESC,  KC_N, KC_R, KC_T, KC_S, KC_G,_______, _______, KC_Y,    KC_H, KC_A, KC_E, KC_I, KC_SLSH, KC_ENT,
         KC_LSFT, KC_X,    KC_Q,    KC_M,    KC_W,    KC_Z,    _______, _______, KC_K,    KC_P,    KC_QUOT, KC_SCLN, KC_DOT,  KC_RSFT, KC_ENT,
-        KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, OSM(MOD_LSFT), KC_BSPC,MO(NAV),MO(SYM),  KC_SPC,KC_UNDS, KC_RALT, KC_RGUI, KC_RCTL, KC_RCTL, _______
+        KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, OSM(MOD_LSFT), KC_BSPC,LA_NAV,LA_SYM,  KC_SPC,KC_UNDS, KC_RALT, KC_RGUI, KC_RCTL, KC_RCTL, _______
     ),
 
     [NAV] = LAYOUT_ortho_5x15(
         QK_BOOT, LALT(KC_1), LALT(KC_2), LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7), LALT(KC_8), LALT(KC_9), LALT(KC_0), _______, _______, _______, QK_BOOT,
         _______, LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_Y), _______, _______, LCTL(LSFT(KC_L)), LALT(KC_TAB), LCTL(KC_TAB), LCTL(LSFT(KC_TAB)), LALT(LSFT(KC_TAB)), LCTL(LALT(LSFT(KC_L))), _______,
-        LALT(KC_ENT), OSM(MOD_LGUI), OSM(MOD_LALT), OSM(MOD_LSFT), OSM(MOD_LCTL), LALT(KC_B), _______, _______, KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL, _______,
+        LALT(LSFT(KC_Q)), OS_CMD, OS_ALT, OS_SHFT, OS_CTRL, LALT(KC_B), _______, _______, KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL, LALT(KC_ENT),
         _______, LALT(KC_R), LALT(KC_D), LCTL(KC_A), LALT(KC_F), LALT(KC_V), _______, _______, CW_TOGG,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_CAPS, _______,
         _______, _______, _______, _______, _______, _______, _______, MO(MEDIA),  _______,  _______,  _______, _______, _______, _______, _______
     ),
@@ -66,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [SYM] = LAYOUT_ortho_5x15(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, KC_LCBR, KC_LBRC,   KC_LPRN, KC_DQUO, KC_GRAVE, _______, _______, _______, KC_QUOTE, KC_RPRN, KC_RBRC, KC_RCBR, _______, _______,
-        _______, KC_EXCLAIM, KC_PLUS, KC_MINUS, KC_EQUAL, KC_BSLS, _______, _______, _______, OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT), OSM(MOD_LGUI), KC_ENT, _______,
+        _______, KC_EXCLAIM, KC_PLUS, KC_MINUS, KC_EQUAL, KC_BSLS, _______, _______, _______, OS_CTRL, OS_SHFT, OS_ALT, OS_CMD, KC_ENT, _______,
         _______, KC_KP_ASTERISK, KC_TILDE,  KC_SLASH, KC_HASH,  KC_PIPE, _______, _______, _______, KC_SPC, KC_AT, KC_PERCENT, KC_AMPERSAND, _______, _______,
         _______, _______, _______, _______, _______, _______, MO(MEDIA),  _______, _______, _______, _______, _______, _______, _______, _______
     )
@@ -80,3 +117,56 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // ),
 };
 
+bool is_oneshot_cancel_key(uint16_t keycode) {
+    switch (keycode) {
+    case LA_SYM:
+    case LA_NAV:
+        return true;
+    default:
+        return false;
+    }
+}
+
+bool is_oneshot_ignored_key(uint16_t keycode) {
+    switch (keycode) {
+    case LA_SYM:
+    case LA_NAV:
+    case KC_LSFT:
+    case OS_SHFT:
+    case OS_CTRL:
+    case OS_ALT:
+    case OS_CMD:
+        return true;
+    default:
+        return false;
+    }
+}
+
+bool sw_win_active = false;
+bool sw_lang_active = false;
+
+oneshot_state os_shft_state = os_up_unqueued;
+oneshot_state os_ctrl_state = os_up_unqueued;
+oneshot_state os_alt_state = os_up_unqueued;
+oneshot_state os_cmd_state = os_up_unqueued;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    update_oneshot(
+        &os_shft_state, KC_LSFT, OS_SHFT,
+        keycode, record
+    );
+    update_oneshot(
+        &os_ctrl_state, KC_LCTL, OS_CTRL,
+        keycode, record
+    );
+    update_oneshot(
+        &os_alt_state, KC_LALT, OS_ALT,
+        keycode, record
+    );
+    update_oneshot(
+        &os_cmd_state, KC_LCMD, OS_CMD,
+        keycode, record
+    );
+
+    return true;
+}

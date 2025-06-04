@@ -20,13 +20,19 @@
 
 #define LA_SYM MO(SYM)
 #define LA_NAV MO(NAV)
+#define LA_MAC_SYM MO(MAC_SYM)
+#define LA_MAC_NAV MO(MAC_NAV)
 
 // Layer definitions
 enum layers {
     BASE,
     NAV,
     SYM,
-    MEDIA
+    NUM,
+    MAC_BASE,
+    MAC_NAV,
+    MAC_SYM,
+    MAC_NUM
 };
 
 // Custom keycodes for layer keys
@@ -93,27 +99,59 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [NAV] = LAYOUT_ortho_5x15(
-        QK_BOOT,          LALT(KC_1), LALT(KC_2), LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7), LALT(KC_8),       LALT(KC_9),   LALT(KC_0),   _______,            _______,            _______,                QK_BOOT,
+        _______,          LALT(KC_1), LALT(KC_2), LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7), LALT(KC_8),       LALT(KC_9),   LALT(KC_0),   _______,            _______,            _______,                _______,
         _______,          LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_Y), _______,    _______,    LCTL(LSFT(KC_L)), LALT(KC_TAB), LCTL(KC_TAB), LCTL(LSFT(KC_TAB)), LALT(LSFT(KC_TAB)), LCTL(LALT(LSFT(KC_L))), _______,
         LALT(LSFT(KC_Q)), OS_CMD,     OS_ALT,     OS_SHFT,    OS_CTRL,    KC_ESC,     _______,    _______,    KC_ENT,           KC_LEFT,      KC_DOWN,      KC_UP,              KC_RGHT,            KC_DEL,                 LALT(KC_ENT),
         _______,          LALT(KC_R), LALT(KC_D), LCTL(KC_A), LALT(KC_F), LALT(KC_V), _______,    _______,    CW_TOGG,          KC_HOME,      KC_PGDN,      KC_PGUP,            KC_END,             KC_CAPS,                _______,
-        _______,          _______,    _______,    _______,    _______,    _______,    _______,    MO(MEDIA),  _______,          _______,      _______,      _______,            _______,            _______,                _______
+        QK_BOOT,          _______,    _______,    _______,    _______,    _______,    _______,    MO(NUM),    _______,          _______,      _______,      _______,            _______,            _______,                _______
     ),
 
     [SYM] = LAYOUT_ortho_5x15(
-        _______, _______,        _______,  _______,  _______,  _______, _______,   _______, _______,     _______,  _______, _______,    _______,      _______, _______,
-        _______, KC_LCBR,        KC_LBRC,  KC_LPRN,  KC_DQUO,  KC_PIPE, _______,   _______, KC_GRAVE,    KC_QUOTE, KC_RPRN, KC_RBRC,    KC_RCBR,      _______, _______,
-        _______, KC_EXCLAIM,     KC_PLUS,  KC_MINUS, KC_EQUAL, KC_ESC,  _______,   _______, KC_ENT,      OS_CTRL,  OS_SHFT, OS_ALT,     OS_CMD,       KC_ENT,  _______,
-        _______, KC_KP_ASTERISK, KC_TILDE, KC_SLASH, KC_HASH,  KC_BSLS, _______,   _______, KC_QUESTION, KC_SPC,   KC_AT,   KC_PERCENT, KC_AMPERSAND, _______, _______,
-        _______, _______,        _______,  _______,  _______,  _______, MO(MEDIA), _______, _______,     _______,  _______, _______,    _______,      _______, _______
+        _______, _______,        _______,  _______,  _______,  _______, _______, _______, _______,     _______,  _______, _______,    _______,      _______, _______,
+        _______, KC_LCBR,        KC_LBRC,  KC_LPRN,  KC_DQUO,  KC_PIPE, _______, _______, KC_GRAVE,    KC_QUOTE, KC_RPRN, KC_RBRC,    KC_RCBR,      _______, _______,
+        _______, KC_EXCLAIM,     KC_PLUS,  KC_MINUS, KC_EQUAL, KC_ESC,  _______, _______, KC_ENT,      OS_CTRL,  OS_SHFT, OS_ALT,     OS_CMD,       KC_ENT,  _______,
+        _______, KC_KP_ASTERISK, KC_TILDE, KC_SLASH, KC_HASH,  KC_BSLS, _______, _______, KC_QUESTION, KC_SPC,   KC_AT,   KC_PERCENT, KC_AMPERSAND, _______, _______,
+        _______, _______,        _______,  _______,  _______,  _______, MO(NUM), _______, _______,     _______,  _______, _______,    _______,      _______, QK_BOOT
     ),
 
-    [MEDIA] = LAYOUT_ortho_5x15(
-        _______, _______, _______, _______, _______,      _______,    _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, KC_TAB,  LSFT(KC_TAB), _______,    _______, _______, _______, KC_7,    KC_8,    KC_9,    KC_COMM, _______, _______,
-        _______, _______, _______, _______, _______,      LALT(KC_B), _______, _______, _______, KC_4,    KC_5,    KC_6,    KC_0,    _______, _______,
-        _______, _______, _______, _______, _______,      LALT(KC_V), _______, _______, _______, KC_1,    KC_2,    KC_3,    KC_DOT,  _______, _______,
-        _______, _______, _______, _______, _______,      _______,    _______, _______, _______, _______, _______, _______, _______, _______, _______
+    [NUM] = LAYOUT_ortho_5x15(
+        _______,      _______, _______, _______, _______,      _______,    _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______,      _______, _______, KC_TAB,  LSFT(KC_TAB), _______,    _______, _______, _______, KC_7,    KC_8,    KC_9,    KC_COMM, _______, _______,
+        _______,      _______, _______, _______, _______,      LALT(KC_B), _______, _______, _______, KC_4,    KC_5,    KC_6,    KC_0,    _______, _______,
+        _______,      _______, _______, _______, _______,      LALT(KC_V), _______, _______, _______, KC_1,    KC_2,    KC_3,    KC_DOT,  _______, _______,
+        DF(MAC_BASE), _______, _______, _______, _______,      _______,    _______, _______, _______, _______, _______, _______, _______, _______, DF(MAC_BASE)
+    ),
+
+    [MAC_BASE] = LAYOUT_ortho_5x15(
+        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,          KC_5,    KC_6,       KC_7,       KC_8,   KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSLS, KC_BSPC,
+        KC_TAB,  KC_B,    KC_L,    KC_D,    KC_C,          KC_V,    KC_VOLD,    KC_VOLU,    KC_J,   KC_F,    KC_O,    KC_U,    KC_COMM, KC_LBRC, KC_RBRC,
+        KC_ESC,  KC_N,    KC_R,    KC_T,    KC_S,          KC_G,    _______,    _______,    KC_Y,   KC_H,    KC_A,    KC_E,    KC_I,    KC_SLSH, KC_ENT,
+        KC_LSFT, KC_X,    KC_Q,    KC_M,    KC_W,          KC_Z,    _______,    _______,    KC_K,   KC_P,    KC_QUOT, KC_SCLN, KC_DOT,  KC_RSFT, KC_ENT,
+        KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, OSM(MOD_LSFT), KC_BSPC, LA_MAC_NAV, LA_MAC_SYM, KC_SPC, KC_UNDS, KC_RALT, KC_RGUI, KC_RCTL, KC_RCTL, _______
+    ),
+
+    [MAC_NAV] = LAYOUT_ortho_5x15(
+        _______,          LALT(KC_1), LALT(KC_2), LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7),  LALT(KC_8),       LALT(KC_9),   LALT(KC_0),   _______,            _______,            _______,                _______,
+        _______,          LCMD(KC_Z), LCMD(KC_X), LCMD(KC_C), LCMD(KC_V), LCMD(KC_Y), _______,    _______,     LCTL(LSFT(KC_L)), LALT(KC_TAB), LCTL(KC_TAB), LCTL(LSFT(KC_TAB)), LALT(LSFT(KC_TAB)), LCTL(LALT(LSFT(KC_L))), _______,
+        LALT(LSFT(KC_Q)), OS_CTRL,    OS_ALT,     OS_SHFT,    OS_CMD,     KC_ESC,     _______,    _______,     KC_ENT,           KC_LEFT,      KC_DOWN,      KC_UP,              KC_RGHT,            KC_DEL,                 LALT(KC_ENT),
+        _______,          _______,    _______,    LCMD(KC_A), LALT(KC_F), _______,    _______,    _______,     _______,          KC_HOME,      KC_PGDN,      KC_PGUP,            KC_END,             KC_CAPS,                _______,
+        QK_BOOT,          _______,    _______,    _______,    _______,    _______,    _______,    MO(MAC_NUM), _______,          _______,      _______,      _______,            _______,            _______,                _______
+    ),
+
+    [MAC_SYM] = LAYOUT_ortho_5x15(
+        _______, _______,        _______,  _______,  _______,  _______, _______,     _______, _______,     _______,  _______, _______,    _______,      _______, _______,
+        _______, KC_LCBR,        KC_LBRC,  KC_LPRN,  KC_DQUO,  KC_PIPE, _______,     _______, KC_GRAVE,    KC_QUOTE, KC_RPRN, KC_RBRC,    KC_RCBR,      _______, _______,
+        _______, KC_EXCLAIM,     KC_PLUS,  KC_MINUS, KC_EQUAL, KC_ESC,  _______,     _______, KC_ENT,      OS_CMD,   OS_SHFT, OS_ALT,     OS_CTRL,      KC_ENT,  _______,
+        _______, KC_KP_ASTERISK, KC_TILDE, KC_SLASH, KC_HASH,  KC_BSLS, _______,     _______, KC_QUESTION, KC_SPC,   KC_AT,   KC_PERCENT, KC_AMPERSAND, _______, _______,
+        _______, _______,        _______,  _______,  _______,  _______, MO(MAC_NUM), _______, _______,     _______,  _______, _______,    _______,      _______, QK_BOOT
+    ),
+
+    [MAC_NUM] = LAYOUT_ortho_5x15(
+        _______,  _______, _______, _______, _______,      _______,    _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______,  _______, _______, KC_TAB,  LSFT(KC_TAB), _______,    _______, _______, _______, KC_7,    KC_8,    KC_9,    KC_COMM, _______, _______,
+        _______,  _______, _______, _______, _______,      LALT(KC_B), _______, _______, _______, KC_4,    KC_5,    KC_6,    KC_0,    _______, _______,
+        _______,  _______, _______, _______, _______,      LALT(KC_V), _______, _______, _______, KC_1,    KC_2,    KC_3,    KC_DOT,  _______, _______,
+        DF(BASE), _______, _______, _______, _______,      _______,    _______, _______, _______, _______, _______, _______, _______, _______, DF(BASE)
     ),
 };
 
@@ -121,6 +159,8 @@ bool is_oneshot_cancel_key(uint16_t keycode) {
     switch (keycode) {
     case LA_SYM:
     case LA_NAV:
+    case LA_MAC_SYM:
+    case LA_MAC_NAV:
         return true;
     default:
         return false;
@@ -131,6 +171,8 @@ bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
     case LA_SYM:
     case LA_NAV:
+    case LA_MAC_SYM:
+    case LA_MAC_NAV:
     case KC_LSFT:
     case OS_SHFT:
     case OS_CTRL:

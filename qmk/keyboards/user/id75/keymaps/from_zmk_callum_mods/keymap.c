@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_LCBR,        KC_LBRC,  KC_LPRN,  KC_DQUO,  KC_PIPE, _______, _______, KC_GRAVE,    KC_QUOTE, KC_RPRN, KC_RBRC,    KC_RCBR,      _______, _______,
         _______, KC_EXCLAIM,     KC_PLUS,  KC_MINUS, KC_EQUAL, KC_ESC,  _______, _______, KC_ENT,      OS_CTRL,  OS_SHFT, OS_ALT,     OS_CMD,       KC_ENT,  _______,
         _______, KC_KP_ASTERISK, KC_TILDE, KC_SLASH, KC_HASH,  KC_BSLS, _______, _______, KC_QUESTION, KC_SPC,   KC_AT,   KC_PERCENT, KC_AMPERSAND, _______, _______,
-        _______, _______,        _______,  _______,  _______,  _______, MO(NUM), _______, _______,     _______,  _______, _______,    _______,      _______, QK_BOOT
+        _______, _______,        _______,  _______,  QK_AREP,  QK_REP,  MO(NUM), _______, _______,     _______,  _______, _______,    _______,      _______, QK_BOOT
     ),
 
     [NUM] = LAYOUT_ortho_5x15(
@@ -143,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_LCBR,        KC_LBRC,  KC_LPRN,  KC_DQUO,  KC_PIPE, _______,     _______, KC_GRAVE,    KC_QUOTE, KC_RPRN, KC_RBRC,    KC_RCBR,      _______, _______,
         _______, KC_EXCLAIM,     KC_PLUS,  KC_MINUS, KC_EQUAL, KC_ESC,  _______,     _______, KC_ENT,      OS_CMD,   OS_SHFT, OS_ALT,     OS_CTRL,      KC_ENT,  _______,
         _______, KC_KP_ASTERISK, KC_TILDE, KC_SLASH, KC_HASH,  KC_BSLS, _______,     _______, KC_QUESTION, KC_SPC,   KC_AT,   KC_PERCENT, KC_AMPERSAND, _______, _______,
-        _______, _______,        _______,  _______,  _______,  _______, MO(MAC_NUM), _______, _______,     _______,  _______, _______,    _______,      _______, QK_BOOT
+        _______, _______,        _______,  _______,  QK_AREP,  QK_REP,  MO(MAC_NUM), _______, _______,     _______,  _______, _______,    _______,      _______, QK_BOOT
     ),
 
     [MAC_NUM] = LAYOUT_ortho_5x15(
@@ -211,4 +211,52 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     );
 
     return true;
+}
+
+uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
+    bool shifted = (mods & MOD_MASK_SHIFT);  // Was Shift held?
+    bool ctrled = (mods & MOD_MASK_CTRL);  // Was Ctrl held?
+    switch (keycode) {
+        // Ctrl-Z / Ctrl-Y
+        case KC_Y:
+            if (ctrled) {
+                return C(KC_Z); // Ctrl + Y reverses to Ctrl + Z.
+            } else { return KC_TRNS; }
+        case KC_Z:
+            if (ctrled) {
+                return C(KC_Y); // Ctrl + Z reverses to Ctrl + Y.
+            } else { return KC_TRNS; }
+        // Tab / Shift tab
+        case KC_TAB:
+            // Browser tab navigation
+            if (shifted & ctrled) {
+                return C(KC_TAB);     // C-S-Tab reverses to C-Tab
+            } else
+            if (ctrled) {
+                return C(S(KC_TAB));  // C-Tab reverses to C-S-Tab
+            }
+            // App navigation (Windows)
+            if (shifted) {
+                return KC_TAB;        // S-Tab reverses to Tab
+            } else {
+                return S(KC_TAB);     // Tab reverses to S-TAB
+            }
+        // Ctrl +/-
+        case KC_MINUS:
+            if (ctrled) {
+                return C(KC_EQUAL);  // Ctrl-- reverses to Ctrl-+.
+            } else { return KC_TRNS; }
+        case KC_EQUAL:
+            if (ctrled) {
+                return C(KC_MINUS); // Ctrl-+ reverses to Ctrl--.
+            } else { return KC_TRNS; }
+        // u / Ctrl-R (vim), undo/redo
+        case KC_U: return C(KC_R);      // U reverses to Ctrl-R
+        case KC_R:
+            if (ctrled) {
+                return KC_U;  // Ctrl-R reverses to U
+            } else { return KC_TRNS; }
+    }
+
+    return KC_TRNS;  // Defer to default definitions.
 }

@@ -63,11 +63,6 @@
     combos {
         compatible = "zmk,combos";
         // Enter / escape
-        combo_return {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <RM1 RM2>;  // H + A on Gallium
-            bindings = <&kp RET>;
-        };
         combo_return_left_hand {
             timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <LM0 LM1>;  // S + G on Gallium
@@ -77,65 +72,6 @@
             timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <LM1 LM2>;  // T + S on Gallium
             bindings = <&kp ESC>;
-        };
-        // Tab / shift tab
-        combo_tab {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <LM2 LM3>;  // R + T on Gallium
-            bindings = <&kp TAB>;
-        };
-        combo_shift_tab {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <RM2 RM3>;  // A + E on Gallium
-            bindings = <&kp LS(TAB)>;
-        };
-        // Quick access to colon. I found it quite useful for vim.
-        // Might drop it in the future.
-        combo_colon {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <RB2 RB3>;  // comma + semi on Gallium
-            bindings = <&kp COLON>;
-        };
-        // Quick access to i3 workspaces via combos on the top row
-        combo_alt_1 {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <LT2 LT1>;  // D + C on Gallium
-            bindings = <&kp LA(N1)>;
-        };
-        combo_alt_2 {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <RT1 RT2>;  // F + O on Gallium
-            bindings = <&kp LA(N2)>;
-        };
-        combo_alt_3 {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <LT3 LT2>;  // L + D on Gallium
-            bindings = <&kp LA(N3)>;
-        };
-        combo_alt_4 {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <RT2 RT3>;  // O + U  on Gallium
-            bindings = <&kp LA(N4)>;
-        };
-        combo_alt_5 {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <LT4 LT3>;  // B + L  on Gallium
-            bindings = <&kp LA(N5)>;
-        };
-        combo_alt_6 {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <RT3 RT4>;  // U + , on Gallium
-            bindings = <&kp LA(N6)>;
-        };
-        combo_alt_8 {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <LT1 LT0>;  // C + V  on Gallium
-            bindings = <&kp LA(N8)>;
-        };
-        combo_alt_9 {
-            timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <RT0 RT1>;  // J + F on Gallium
-            bindings = <&kp LA(N9)>;
         };
     };
 };

@@ -68,25 +68,11 @@ enum {
     DOUBLE_TAP
 };
 
-const uint16_t PROGMEM combo_enter[] = {KC_H, KC_A, COMBO_END};
 const uint16_t PROGMEM combo_enter_left_hand[] = {KC_S, KC_G, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_T, KC_S, COMBO_END};
-const uint16_t PROGMEM combo_tab[] = {KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM combo_shift_tab[] = {KC_A, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_colon[] = {KC_QUOT, KC_SCLN, COMBO_END};
-const uint16_t PROGMEM combo_left_paren[] = {KC_L, KC_D, COMBO_END};
-const uint16_t PROGMEM combo_right_paren[] = {KC_D, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_double_quote[] = {KC_P, KC_QUOT, COMBO_END};
 combo_t key_combos[] = {
-    COMBO(combo_enter, KC_ENT),
     COMBO(combo_enter_left_hand, KC_ENT),
     COMBO(combo_escape, KC_ESC),
-    COMBO(combo_tab, KC_TAB),
-    COMBO(combo_shift_tab, LSFT(KC_TAB)),
-    COMBO(combo_colon, KC_COLON),
-    COMBO(combo_left_paren, KC_LPRN),
-    COMBO(combo_right_paren, KC_RPRN),
-    COMBO(combo_double_quote, KC_DOUBLE_QUOTE),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -143,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_LCBR,        KC_LBRC,  KC_LPRN,  KC_DQUO,  KC_PIPE, _______,     _______, KC_GRAVE,    KC_QUOTE, KC_RPRN, KC_RBRC,    KC_RCBR,      _______, _______,
         _______, KC_EXCLAIM,     KC_PLUS,  KC_MINUS, KC_EQUAL, KC_ESC,  _______,     _______, KC_ENT,      OS_CMD,   OS_SHFT, OS_ALT,     OS_CTRL,      KC_ENT,  _______,
         _______, KC_KP_ASTERISK, KC_TILDE, KC_SLASH, KC_HASH,  KC_BSLS, _______,     _______, KC_QUESTION, KC_SPC,   KC_AT,   KC_PERCENT, KC_AMPERSAND, _______, _______,
-        _______, _______,        _______,  _______,  QK_AREP,  QK_REP,  MO(MAC_NUM), _______, _______,     _______,  _______, _______,    _______,      _______, QK_BOOT
+        _______, _______,        _______,  _______,  QK_AREP,  QK_REP, MO(MAC_NUM), _______, _______,     _______,  _______, _______,    _______,      _______, QK_BOOT
     ),
 
     [MAC_NUM] = LAYOUT_ortho_5x15(

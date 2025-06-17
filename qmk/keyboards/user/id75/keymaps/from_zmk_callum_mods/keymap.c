@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,          LALT(KC_1), LALT(KC_2),   LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7), LALT(KC_8),       LALT(KC_9),   LALT(KC_0),   _______,            _______,            _______,                _______,
         _______,          LCTL(KC_Z), LCTL(KC_X),   LCTL(KC_C), LCTL(KC_V), LCTL(KC_Y), _______,    _______,    LCTL(LSFT(KC_L)), LALT(KC_TAB), LCTL(KC_TAB), LCTL(LSFT(KC_TAB)), LALT(LSFT(KC_TAB)), LCTL(LALT(LSFT(KC_L))), _______,
         LALT(LSFT(KC_Q)), OS_CMD,     OS_ALT,       OS_SHFT,    OS_CTRL,    KC_ESC,     _______,    _______,    KC_ENT,           KC_LEFT,      KC_DOWN,      KC_UP,              KC_RGHT,            KC_DEL,                 LALT(KC_ENT),
-        _______,          LALT(KC_R), LALT(KC_SPC), LCTL(KC_A), LALT(KC_F), LALT(KC_V), _______,    _______,    CW_TOGG,          KC_HOME,      KC_PGDN,      KC_PGUP,            KC_END,             KC_CAPS,                _______,
+        _______,          LALT(KC_R), LALT(KC_SPC), LCTL(KC_A), LALT(KC_F), LALT(KC_V), _______,    _______,    KC_QUES,          KC_HOME,      KC_PGDN,      KC_PGUP,            KC_END,             KC_CAPS,                _______,
         QK_BOOT,          _______,    _______,      _______,    _______,    _______,    _______,    _______,    _______,          QK_REP,       QK_AREP,      _______,            _______,            _______,                _______
     ),
 
@@ -119,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,          LALT(KC_1), LALT(KC_2),   LALT(KC_3), LALT(KC_4), LALT(KC_5), LALT(KC_6), LALT(KC_7), LALT(KC_8),       LALT(KC_9),    LALT(KC_0),   _______,            _______,            _______,                _______,
         _______,          LCMD(KC_Z), LCMD(KC_X),   LCMD(KC_C), LCMD(KC_V), LCMD(KC_Y), _______,    _______,    LCMD(LSFT(KC_L)), LALT(KC_TAB),  LCTL(KC_TAB), LCTL(LSFT(KC_TAB)), LALT(LSFT(KC_TAB)), LCTL(LALT(LSFT(KC_L))), _______,
         LALT(LSFT(KC_Q)), OS_CMD,    OS_ALT,       OS_SHFT,    OS_CTRL,     KC_ESC,     _______,    _______,    KC_ENT,           KC_LEFT,       KC_DOWN,      KC_UP,              KC_RGHT,            KC_DEL,                 LALT(KC_ENT),
-        _______,          _______,    LALT(KC_SPC), LCMD(KC_A), LALT(KC_F), _______,    _______,    _______,    _______,          LCTL(KC_LEFT), KC_PGDN,      KC_PGUP,            LCTL(KC_RGHT),      KC_CAPS,                _______,
+        _______,          _______,    LALT(KC_SPC), LCMD(KC_A), LALT(KC_F), _______,    _______,    _______,    KC_QUES,          LCTL(KC_LEFT), KC_PGDN,      KC_PGUP,            LCTL(KC_RGHT),      KC_CAPS,                _______,
         QK_BOOT,          _______,    _______,      _______,    _______,    _______,    _______,    _______,    _______,          QK_REP,        QK_AREP,      _______,            _______,            _______,                _______
     ),
 

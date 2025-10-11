@@ -1,0 +1,5 @@
+.git
+.claude
+*.nix
+flake.lock
+README.md

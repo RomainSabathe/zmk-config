@@ -1,0 +1,5 @@
+# Build output directory
+build/
+
+# Local QMK clone (if using build-local.sh)
+vial-qmk/

@@ -191,8 +191,8 @@
 /* 1 */ /* 2 */         /* 3 */         /* 4 */         /* 5 */     /* 6 */   /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */     /* 13 */  /* 14 */
 &none   &none           &none           &none           &none       &none                     &none   &none    &none    &none        &none     &none   
 &none   &none           &none           &kp TAB         &kp LS(TAB) &none                     &none   &kp N7   &kp N8   &kp N9       &kp COMMA &none   
-&none   &sk LGUI        &sk LALT        &sk LSHFT       &sk LCTRL   &kp LA(B)                 &none   &kp N4   &kp N5   &kp N6       &kp N0    &none   
-&none   &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_HUI &none       &kp LA(V) &trans  &trans  &none   &kp N1   &kp N2   &kp N3       &kp DOT   &none   
+&none   &none           &kp PLUS        &kp MINUS       &kp EQUAL   &kp LA(B)                 &none   &kp N4   &kp N5   &kp N6       &kp SPACE    &none   
+&none   &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_HUI &kp N0       &kp LA(V) &trans  &trans  &none   &kp N1   &kp N2   &kp N3       &kp DOT   &none   
                         &to MAC_BASE    &trans          &trans      &trans    &trans  &trans  &trans  &trans   &trans   &to MAC_BASE                   
 /* 1 */ /* 2 */         /* 3 */         /* 4 */         /* 5 */     /* 6 */   /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */     /* 13 */  /* 14 */
 >;
@@ -247,8 +247,8 @@
 /* 1 */ /* 2 */  /* 3 */  /* 4 */   /* 5 */     /* 6 */         /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */  /* 14 */
 &none   &none    &none    &none     &none       &rgb_ug RGB_TOG                 &none   &none    &none    &none    &none     &none   
 &none   &none    &none    &kp TAB   &kp LS(TAB) &none                           &none   &kp N7   &kp N8   &kp N9   &kp COMMA &none   
-&none   &sk LGUI &sk LALT &sk LSHFT &sk LCTRL   &kp LA(B)                       &none   &kp N4   &kp N5   &kp N6   &kp N0    &none   
-&none   &none    &none    &none     &none       &kp LA(V)       &trans  &trans  &none   &kp N1   &kp N2   &kp N3   &kp DOT   &none   
+&none   &none    &kp PLUS &kp MINUS &kp EQUAL   &kp LA(B)                       &none   &kp N4   &kp N5   &kp N6   &kp SPACE    &none   
+&none   &none    &none    &none     &kp N0       &kp LA(V)       &trans  &trans  &none   &kp N1   &kp N2   &kp N3   &kp DOT   &none   
                  &to BASE &trans    &trans      &trans          &trans  &trans  &trans  &trans   &trans   &to BASE                   
 /* 1 */ /* 2 */  /* 3 */  /* 4 */   /* 5 */     /* 6 */         /* 7 */ /* 8 */ /* 9 */ /* 10 */ /* 11 */ /* 12 */ /* 13 */  /* 14 */
 >;

@@ -1,7 +1,14 @@
 /.west
 /modules
 /zephyr
-/zmk
 /build
 /result
 config.mk
+
+# Ignore west-managed zmk source (when built locally)
+# But allow our zmk/ build directory
+/zmk/
+!/zmk/
+
+# ZMK build artifacts
+zmk/build/

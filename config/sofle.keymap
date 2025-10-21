@@ -162,7 +162,7 @@
             display-name = "nav";bindings = <
 /* 1 */       /* 2 */    /* 3 */       /* 4 */    /* 5 */    /* 6 */    /* 7 */ /* 8 */ /* 9 */       /* 10 */    /* 11 */    /* 12 */        /* 13 */        /* 14 */         
 &none         &kp LA(N1) &kp LA(N2)    &kp LA(N3) &kp LA(N4) &kp LA(N5)                 &kp LA(N6)    &kp LA(N7)  &kp LA(N8)  &kp LA(N9)      &kp LA(N0)      &kp LC(LA(LS(L)))
-&none         &kp LC(Z)  &kp LC(X)     &kp LC(C)  &kp LC(V)  &kp LC(Y)                  &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &kp DEL          
+&none         &kp LC(Z)  &kp LC(X)     &kp LC(INS)  &kp LS(INS)  &kp LC(Y)                  &kp LC(LS(L)) &kp LA(TAB) &kp LC(TAB) &kp LC(LS(TAB)) &kp LA(LS(TAB)) &kp DEL          
 &kp LA(LS(Q)) &sk LGUI   &sk LALT      &sk LSHFT  &sk LCTRL  &kp ESC                    &kp RET       &kp LEFT    &kp DOWN    &kp UP          &kp RIGHT       &kp RET          
 &none         &kp LA(R)  &kp LA(SPACE) &kp LC(A)  &kp LA(F)  &kp QMARK      &trans  &trans  &none     &kp HOME    &kp PG_DN   &kp PG_UP       &kp END         &none            
                          &bootloader   &trans     &trans     &trans     &trans  &trans  &trans        &key_repeat &trans      &trans                                           

@@ -160,9 +160,9 @@
         sym_layer {
             display-name = "sym";
             bindings = <
-&none   &kp LBRC &kp LBKT  &kp LPAR    &kp DQT     &kp PIPE     &kp GRAVE &kp SQT   &kp RPAR  &kp RBKT    &kp RBRC &none
-&none   &kp EXCL &kp PLUS  &kp MINUS   &kp EQUAL   &kp ESC      &kp RET   &sk LCTRL &sk LSHFT &sk LALT    &sk LGUI &kp QMARK
-&none   &kp STAR &kp TILDE &kp SLASH   &kp HASH    &kp BSLH     &kp DLLR  &kp SPACE &kp AT    &kp PRCNT   &kp AMPS &none
+&none &kp LBRC &kp LBKT  &kp LPAR    &kp DQT     &kp PIPE     &kp GRAVE &kp SQT   &kp RPAR  &kp RBKT    &kp RBRC &none
+&none     &kp EXCL &kp PLUS  &kp MINUS   &kp EQUAL   &kp ESC      &kp RET   &sk LCTRL &sk LSHFT &sk LALT    &sk LGUI &kp QMARK
+&none &kp STAR &kp TILDE &kp SLASH   &kp HASH    &kp BSLH     &kp DLLR  &kp SPACE &kp AT    &kp PRCNT   &kp AMPS &none
                             &key_repeat &trans      &trans       &trans    &trans    &trans
             >;
         };
@@ -204,9 +204,9 @@
         mac_sym_layer {
             display-name = "mac-sym";
             bindings = <
-&none   &kp LBRC &kp LBKT  &kp LPAR  &kp DQT   &kp PIPE     &kp GRAVE &kp SQT   &kp RPAR  &kp RBKT    &kp RBRC &none
-&none   &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp ESC      &kp RET   &sk LCTRL &sk LSHFT &sk LALT    &sk LGUI &kp QMARK
-&none   &kp STAR &kp TILDE &kp SLASH &kp HASH  &kp BSLH     &kp DLLR  &kp SPACE &kp AT    &kp PRCNT   &kp AMPS &none
+&none &kp LBRC &kp LBKT  &kp LPAR  &kp DQT   &kp PIPE     &kp GRAVE &kp SQT   &kp RPAR  &kp RBKT    &kp RBRC &none
+&none     &kp EXCL &kp PLUS  &kp MINUS &kp EQUAL &kp ESC      &kp RET   &sk LCTRL &sk LSHFT &sk LALT    &sk LGUI &kp QMARK
+&none &kp STAR &kp TILDE &kp SLASH &kp HASH  &kp BSLH     &kp DLLR  &kp SPACE &kp AT    &kp PRCNT   &kp AMPS &none
                             &key_repeat    &trans &trans    &trans    &trans    &trans
             >;
         };

@@ -1,5 +1,5 @@
 # ABOUTME: Dockerfile for building ZMK keyboard firmware
-# ABOUTME: Builds firmware for Sofle split keyboard with nice_nano_v2 boards
+# ABOUTME: Builds firmware for local ZMK keyboard configs
 
 FROM docker.io/zmkfirmware/zmk-build-arm:stable
 
@@ -17,8 +17,5 @@ RUN west init -l config && \
     west update && \
     west zephyr-export
 
-# Copy all config files
+# Copy all config files.
 COPY config/ /workspace/config/
-
-# Default command: build left half
-CMD ["west", "build", "-s", "/workspace/zmk/app", "-d", "build/left", "-b", "nice_nano_v2", "--", "-DSHIELD=sofle_left", "-DZMK_CONFIG=/workspace/config"]

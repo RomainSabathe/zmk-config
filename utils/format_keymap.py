@@ -1,3 +1,9 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.12"
+# dependencies = []
+# ///
+
 import re
 from typing import List
 
@@ -85,4 +91,4 @@ def format_keymap(filepath):
 
 
 if __name__ == "__main__":
-    format_keymap("config/sofle.keymap")
+    format_keymap("zmk/config/sofle.keymap")

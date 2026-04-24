@@ -3,3 +3,5 @@
 *.nix
 flake.lock
 README.md
+build/
+vial-qmk/

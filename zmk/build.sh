@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ABOUTME: Build script for ZMK firmware using Docker/Podman
-# ABOUTME: Simplifies building firmware for split keyboard halves
+# ABOUTME: Supports sofle and chocofi keyboard targets
 
 set -e
 
@@ -18,14 +18,29 @@ else
 fi
 
 BOARD="nice_nano_v2"
-SIDE="${1:-both}"  # left, right, or both
+KEYBOARD="${1:-sofle}"  # sofle or chocofi
+SIDE="${2:-both}"       # left, right, or both
 OUTPUT_DIR="$(pwd)/zmk/build"
+
+# Map keyboard name to shield name
+case "$KEYBOARD" in
+    sofle)
+        shield_for_side() { echo "sofle_${1}"; }
+        ;;
+    chocofi)
+        shield_for_side() { echo "corne_${1} nice_view_adapter nice_view"; }
+        ;;
+    *)
+        echo "Error: Unknown keyboard '${KEYBOARD}'. Use 'sofle' or 'chocofi'."
+        exit 1
+        ;;
+esac
 
 # Create output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
 
 echo "Using container runtime: $CONTAINER_CMD"
-echo "Building firmware for board: $BOARD, shield: sofle_${SIDE}"
+echo "Building firmware for keyboard: $KEYBOARD, board: $BOARD, side: $SIDE"
 echo "=============================================="
 
 # Build container image
@@ -34,21 +49,23 @@ $CONTAINER_CMD build -f zmk/Dockerfile -t zmk-builder .
 # Build function
 build_side() {
     local side=$1
-    echo "Building ${side} half..."
+    local shield
+    shield="$(shield_for_side "$side")"
+    echo "Building ${side} half (shield: ${shield})..."
 
     # Clean the build directory for this side
-    rm -rf "$OUTPUT_DIR/${side}"
+    rm -rf "$OUTPUT_DIR/${KEYBOARD}_${side}"
 
     if [ "$CONTAINER_CMD" = "podman" ]; then
         $CONTAINER_CMD run --rm \
             -v "$OUTPUT_DIR:/workspace/build:rw,Z" \
             zmk-builder \
-            west build -s /workspace/zmk/app -d "build/${side}" -b "$BOARD" --pristine -- "-DSHIELD=sofle_${side}" "-DZMK_CONFIG=/workspace/config"
+            west build -s /workspace/zmk/app -d "build/${KEYBOARD}_${side}" -b "$BOARD" --pristine -- "-DSHIELD=${shield}" "-DZMK_CONFIG=/workspace/config"
     else
         $CONTAINER_CMD run --rm \
             -v "$OUTPUT_DIR:/workspace/build:rw" \
             zmk-builder \
-            west build -s /workspace/zmk/app -d "build/${side}" -b "$BOARD" --pristine -- "-DSHIELD=sofle_${side}" "-DZMK_CONFIG=/workspace/config"
+            west build -s /workspace/zmk/app -d "build/${KEYBOARD}_${side}" -b "$BOARD" --pristine -- "-DSHIELD=${shield}" "-DZMK_CONFIG=/workspace/config"
     fi
 
     # Copy and flatten output
@@ -56,12 +73,12 @@ build_side() {
         $CONTAINER_CMD run --rm \
             -v "$OUTPUT_DIR:/workspace/build:rw,Z" \
             zmk-builder \
-            sh -c "cp build/${side}/zephyr/zmk.uf2 build/sofle_${side}.uf2"
+            sh -c "cp build/${KEYBOARD}_${side}/zephyr/zmk.uf2 build/${KEYBOARD}_${side}.uf2"
     else
         $CONTAINER_CMD run --rm \
             -v "$OUTPUT_DIR:/workspace/build:rw" \
             zmk-builder \
-            sh -c "cp build/${side}/zephyr/zmk.uf2 build/sofle_${side}.uf2"
+            sh -c "cp build/${KEYBOARD}_${side}/zephyr/zmk.uf2 build/${KEYBOARD}_${side}.uf2"
     fi
 }
 
@@ -76,7 +93,7 @@ fi
 echo ""
 echo "Build complete! Firmware is in: $OUTPUT_DIR"
 if [ "$SIDE" = "both" ]; then
-    echo "Files: sofle_left.uf2, sofle_right.uf2"
+    echo "Files: ${KEYBOARD}_left.uf2, ${KEYBOARD}_right.uf2"
 else
-    echo "File: sofle_${SIDE}.uf2"
+    echo "File: ${KEYBOARD}_${SIDE}.uf2"
 fi

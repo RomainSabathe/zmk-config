@@ -1,0 +1,3 @@
+// ZMK looks up keymap files by shield name (corne_left/corne_right), so this
+// file must be named corne.keymap. The actual keymap lives in chocofi.keymap.
+#include "chocofi.keymap"
